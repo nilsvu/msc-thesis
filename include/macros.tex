@@ -1,0 +1,99 @@
+\usepackage{amsmath,amssymb}
+\usepackage{esdiff} % derivatives
+\usepackage{commath} % math macros
+\usepackage{bbm} % blackboard style symbols
+\usepackage{xfrac} % sfrac
+\usepackage{mathtools} % coloneqq
+
+% Links
+\newcommand{\namedeqref}[2]{\hyperref[#2]{#1}~\eqref{#2}} % macro to reference equations by name
+\renewcommand{\appref}[1]{\hyperref[#1]{Appendix~\ref{#1}}} % macro to print appendix references
+
+% Equations
+\newcommand{\eqpunct}[1]{\mathpunct{#1}} % embed punctuation in equations
+\newcommand{\eqname}[2]{\label{#2} \\[-1em] \tag*{\llap{\emph{#1}}}} % print a title for the equation
+
+% Images
+\usepackage{pgf}
+\newcommand{\plt}[3]{
+	\begin{figure}[h]
+		\begin{center}
+			\input{plots/#1.pgf}
+		\end{center}
+		\caption[#2]{\textbf{#2} \quad #3}
+		\label{fig:#1}
+	\end{figure}
+}
+
+% Abbreviations
+\newcommand{\LCDM}{$\cosmconst$CDM}
+\newcommand{\FLRW}{FLRW}
+\newcommand{\fR}[1]{\(f(\Rscal)\)~#1}
+
+% Math symbols
+\newcommand{\Rscal}{\mathcal{R}} % Ricci scalar
+\newcommand{\Rtens}{R} % Ricci tensor
+\newcommand{\Riemtens}{R} % Riemann tensor
+\newcommand{\Gtens}{G} % Einstein tensor
+\newcommand{\Ttens}{T} % Energy-momentum tensor
+\newcommand{\metrdet}[1]{\abs{#1}} % metric determinant
+\newcommand{\lagrdens}{\mathcal{L}} % Lagrangian
+\newcommand{\matterfields}{\Phi} % matter fields in the lagrangian
+\newcommand{\lagrdensmatter}{\lagrdens_\textnormal{matter}(g,\matterfields)} % matter Lagrangian
+\newcommand{\Newtconst}{\mathrm{G}_\textnormal{\tiny{N}}} % Newtonian constant
+\newcommand{\cosmconst}{\Lambda} % determinant of g
+\newcommand{\hcross}{h_\times} % cross-polarized tensor perturbation
+\newcommand{\hplus}{h_+} % plus-polarized tensor perturbation
+\newcommand{\conft}{\eta} % conformal time
+\newcommand{\efold}{\ln a} % e-foldings
+\newcommand{\Hcosm}{\mathrm{H}} % Hubble function
+\newcommand{\Hconf}{\mathcal{H}} % conformal Hubble function
+%\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\newcommand{\eosp}{w} % equation of state parameter
+\newcommand{\nexp}{n(\eosp)} % 3(1+w)
+\newcommand{\nexpconft}{\tilde{n}(\eosp)} % 2/(1+3w)
+\newcommand{\spatcurv}{\kappa} % spatial curvature
+\newcommand{\dens}{\rho} % density
+\newcommand{\denscrit}{\rho_\textnormal{crit}} % density
+\newcommand{\Dens}{\Omega} % normalized density
+\newcommand{\symbdust}{\mathrm{m}} % normalized density
+\newcommand{\symbrad}{\gamma} % normalized density
+% Parametrization
+\newcommand{\alphaM}{{\alpha_{\textnormal{\tiny{M}}}}} % parametrized friction
+\newcommand{\tenspert}{\textnormal{\tiny{T}}}
+\newcommand{\scalpert}{\textnormal{\tiny{S}}}
+\newcommand{\cT}{{c_\tenspert}} % parametrized propagation speed
+\newcommand{\const}{\textnormal{\textit{const}}} % constant parameter
+\newcommand{\alphaMnot}{\alphaM_0} % parametrized power law friction amplitude
+\newcommand{\betaexp}{\beta} % parametrized power law friction exponent
+\newcommand{\ofmetr}[1]{_{#1}}
+\newcommand{\alphaMofmetr}[1]{\alphaM\ofmetr{#1}}
+\newcommand{\mofmetr}[1]{m\ofmetr{#1}}
+\newcommand{\cTofmetr}[1]{\cT\ofmetr{#1}}
+\newcommand{\qofmetr}[1]{q\ofmetr{#1}}
+% Bessel functions
+\newcommand{\besselJ}{J}
+\newcommand{\besselY}{Y}
+
+% Derivatives
+\newcommand{\dt}[1]{\diff{#1}{t}}
+\newcommand{\ddt}[1]{\diff[2]{#1}{t}}
+\newcommand{\dconf}[1]{\dot{#1}}
+\newcommand{\ddconf}[1]{\ddot{#1}}
+\newcommand{\defold}[1]{#1^\prime}
+\newcommand{\ddefold}[1]{#1^{\prime\prime}}
+
+% Operators and other stuff
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\defeq}{\coloneqq}
+\newcommand{\idmat}{\mathbbm{1}}
+\newcommand{\covd}{\nabla}
+\newcommand{\eul}{\mathrm{e}}
+\newcommand{\dxdx}[2]{\dif{x^{#1}}\otimes\dif{x^{#2}}}
+
+% Units
+\RequirePackage{siunitx}
+\DeclareSIUnit\parsec{pc}
+
+% Code
+\newcommand{\mmainline}[1]{\texttt{#1}}

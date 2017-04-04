@@ -1,0 +1,57 @@
+\documentclass[
+    draft,
+	12pt, % font size
+	parskip=half, % space between paragraphs instead of indentation
+	digital, % digital or print
+	oneside, % oneside / twoside
+%	openright, % openright for title page and subsequent chapters on right pages in twosided layout
+]{thesis}
+
+\geometry{
+	width=155mm,
+%	bindingoffset=5mm,
+}
+\fancyhfoffset{0pt}
+
+\title{Gravitational closure of maximally symmetric bi-refringent spacetime}
+\author{Nils Leif Fischer}
+\date{December 5, 2017}
+
+\input{include/macros}
+
+\addbibresource{msc-thesis.bib}
+
+
+\begin{document}
+
+
+% Front matter
+\pagenumbering{Roman}
+
+\input{content/titlepage}
+\input{content/abstract}
+
+\tableofcontents
+\listoffigures
+
+% Main matter
+\cleardoublepage\pagenumbering{arabic}
+
+
+\input{content/main}
+
+
+% Back matter
+
+\input{content/acknowledgments}
+
+\begin{appendices}
+\input{content/mathematical_appendix}
+\end{appendices}
+
+\printbibliography[heading=bibintoc,title=References]
+
+\input{content/declaration}
+
+
+\end{document}
