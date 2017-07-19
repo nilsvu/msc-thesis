@@ -4,6 +4,57 @@
 
 \chapter{Area-metric cosmology}
 
+\section{Derivation of the FLRW area metric}
+
+Impose the FLRW symmetries on spacetime by demanding that
+\begin{align}
+\vect{\Kvec} \in &\{ \sqrt{\curvfact}\basisvect_\mu \} \cup \{ \vect{L}_\mu \} \quad \text{where} \quad (\vect{L}_\mu)^\nu = \levciv^\nu_\mu\rho \coordx^\rho \\
+&=\{
+\frac{\sqrt{\curvfact}}{\coordr}\begin{pmatrix}
+0 \\ \coordr\sinth\cosph \\ \costh\cosph \\ -\frac{\sinph}{\sinth}
+\end{pmatrix},
+\frac{\sqrt{\curvfact}}{\coordr}\begin{pmatrix}
+0 \\ \coordr\sinth\sinph \\ \costh\sinph \\ \frac{\cosph}{\sinth}
+\end{pmatrix},
+\frac{\sqrt{\curvfact}}{\coordr}\begin{pmatrix}
+0 \\ \coordr\cosph \\ -\sinth \\ 0
+\end{pmatrix},\\
+&\begin{pmatrix}
+0 \\ 0 \\ \sinph \\ \costh\cosph
+\end{pmatrix},
+\begin{pmatrix}
+0 \\ 0 \\ -\cosph \\ \frac{\costh}{\sinth}\sinph
+\end{pmatrix},
+\begin{pmatrix}
+0 \\ 0 \\ 0 \\ 1
+\end{pmatrix}
+ \}
+\end{align}
+are Killing vector fields satisfying
+\begin{equation}
+(\Liederiv{\vect{\Kvec}}{\geom})^\multindex=0\eqpunct{.}
+\end{equation}
+
+For metric geometry the Killing condition
+\begin{equation}
+0=\Kvec^m\partial_m \met^{ab}-2\met{^m(a}\partial_m\Kvec^{b)}
+\end{equation}
+constrains the metric degrees of freedom to
+\begin{align}
+\met^{ab}=\begin{pmatrix}
+\Const_1(t) & 0 \\
+0 & \Const_2(t)\spatmet^{\mu\nu}
+\end{pmatrix}
+\defeq\begin{pmatrix}
+\frac{1}{\Nlapse^2} & 0 \\
+0 & -\frac{1}{\scalea^2}\spatmet^{\mu\nu}
+\end{pmatrix}
+\end{align}
+that is the canonical FLRW metric.
+
+
+\section{Dispersion of null geodesics}
+
 The dual principle polynomial for the FLRW area metric is
 \begin{equation}
 \Pdual_\mathrm{FLRW}=\frac{\left(q^2 a(t)^2 c(t)^2+\omega ^2 \left(k r^2-1\right) N_{\text{lapse}}(t){}^2\right){}^2}{c(t)^2 \left(k r^2-1\right)^2}

@@ -27,11 +27,36 @@
 
 
 
-% Math symbols
+% # Math symbols
+% Coordinates
+\newcommand{\coordx}{x}
+\newcommand{\coordr}{r}
+\newcommand{\coordtheta}{\theta}
+\newcommand{\coordphi}{\phi}
+\newcommand{\costh}{\cos{\coordtheta}}
+\newcommand{\sinth}{\sin{\coordtheta}}
+\newcommand{\cosph}{\cos{\coordphi}}
+\newcommand{\sinph}{\sin{\coordphi}}
+% Common symbols
+\newcommand{\Const}{C}
+% Tensor calculus
+\newcommand{\levciv}{\epsilon}
+\newcommand{\Liederiv}[2]{\mathcal{L}_{#1} #2}
+% Geometry
+\newcommand{\Kvec}{K}
+\newcommand{\basisvect}{\vect{e}}
+\newcommand{\spatcurv}{k} % FLRW spatial curvature parameter
+\newcommand{\curvfact}{1-\spatcurv \coordr{}^2}
+\newcommand{\scalea}{a(t)}
+\newcommand{\scalec}{c(t)}
+\newcommand{\Nlapse}{N(t)}
+% Constructive gravity
 \newcommand{\Pdual}{P^\#}
-
-
-
+\newcommand{\geom}{G} % general geometry
+\newcommand{\met}{g} % metric
+\newcommand{\spatmet}{\gamma_{\spatcurv}} % metric
+\newcommand{\armet}{G} % area metric
+\newcommand{\multindex}{A}
 
 % Abbreviations
 \newcommand{\LCDM}{$\cosmconst$CDM}
@@ -58,7 +83,6 @@
 \newcommand{\eosp}{w} % equation of state parameter
 \newcommand{\nexp}{n(\eosp)} % 3(1+w)
 \newcommand{\nexpconft}{\tilde{n}(\eosp)} % 2/(1+3w)
-\newcommand{\spatcurv}{\kappa} % spatial curvature
 \newcommand{\dens}{\rho} % density
 \newcommand{\denscrit}{\rho_\textnormal{crit}} % density
 \newcommand{\Dens}{\Omega} % normalized density
