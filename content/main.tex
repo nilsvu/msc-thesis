@@ -136,9 +136,7 @@ Geometrodynamics that complement the matter field dynamics follow from variation
 \end{equation}
 that sources the gravitational dynamics, which is the reason we shall refer to it as the \emph{gravitational source tensor}. The multi-index~$\multind$ in this expression iterates over all geometric degrees of freedom. We have included a factor of~${\volel_\gengeom}^{-1}$ to obtain a tensorial object. Furthermore, this particular definition facilitates a straight forward comparison to the object
 \begin{equation}\label{eq:sourcet_met}
-	\begin{metric*}
-		\sourcet_{ab}=-\frac{2}{\sqrtmet}\functderiv{\actmatter[\met,\matterfields]}{\met^{ab}}
-	\end{metric*}
+	\metind\sourcet_{ab}=-\frac{2}{\sqrtmet}\functderiv{\actmatter[\met,\matterfields]}{\met^{ab}}
 \end{equation}
 that in the literature is often referred to as the \emph{Hilbert stress-energy tensor}. This is precisely the gravitational source tensor of a matter theory that is based on a metric geometry.
 
@@ -166,9 +164,7 @@ by diffeomorphism symmetry of the action.
 
 Reassuringly, we recover the simple relation between between gravitational source and energy-momentum that we are used to in metric spacetime geometry when we compute the metric Gotay-Marsden coefficients
 \begin{equation}
-	\begin{metric*}
-		\GMcoeff{ab}{m}{n}=-2\met^{m\syml a}\krond^{b\symr}_n
-	\end{metric*}
+	\GMcoeff{ab}{m}{n}=-2\met^{m\syml a}\krond^{b\symr}_n
 \end{equation}
 to find
 \begin{equation}
@@ -177,9 +173,7 @@ to find
 \end{equation}
 The conservation law~\eqref{eq:em_cons} then reduces to the standard metric covariant conservation of energy-momentum
 \begin{equation}
-	\begin{metric*}
-		\covd_m{\sourcet^m}_b=0
-	\end{metric*}
+	\covd_m{\sourcet^m}_b=0
 \end{equation}
 so that we indeed recover the simple connection between gravitational source and energy-momentum that we usually take for granted in general relativity.
 
@@ -196,7 +190,7 @@ that allow us to compute the corresponding Gotay-Marsden energy-momentum tensor 
 \end{align}
 where we used the symmetries~\eqref{eq:armet_symmetries} that both the area-metric as well as its source tensor exhibit. We note that the particular definition of gravitational source and energy-momentum employed here makes their respective traces coincide in both metric and area-metric geometry since
 \begin{equation}\label{eq:emtrace}
-	\frac{1}{\sqrtmet}{{\EMt_\met}^m}_m=\met^{ab}\sourcet_{ab} \quad \text{and} \quad \frac{1}{\volel_\armet}{{\EMt_\armet}^m}_m=\armet^{abcd}\sourcet_{abcd}
+	\metind\frac{1}{\sqrtmet}{{\EMt_\met}^m}_m=\met^{ab}\sourcet_{ab} \quad \text{and} \quad \armetind\frac{1}{\volel_\armet}{{\EMt_\armet}^m}_m=\armet^{abcd}\sourcet_{abcd}
 	\eqpunct{.}
 \end{equation}
 In area-metric geometry we may also compute another coordinate invariant quantity
@@ -231,7 +225,7 @@ For the non-metric quantitiy~\eqref{eq:sourcet_gled_levciv} we find
 
 The concern of cosmology is to describe our Universe as a whole and construct models of its evolution on the largest scales. Since it is technically, and perhaps even conceptually, entirely unfeasible to travel cosmological distances to make observations, we rely on symmetry assumptions that allow us to approach the field of cosmology as a physical theory.
 
-\statement{We assume our Universe is spatially isotropic and homogeneous at the largest scales.}
+\statement{We assume that our Universe is spatially isotropic and homogeneous.}
 
 The first assumption, of isotropy, states that the Universe, when observed from a particular location, does not distinguish any direction. It is based on cosmological observations such as precision measurements of the extremely isotropic cosmic microwave background~\autocite{Planck2015}. The second assumption is that of homogeneity, stating that isotropy is not a particular feature of our location on Earth, but that the same applies to any location in the Universe\footnote{Note that our technical limitations make this \emph{Copernican principle}, or \emph{humility}, far more difficult to test. The reader may find a discussion for instance in~\autocite{Schwarz2015} and references therein.}. Taken together, we shall refer to these assumptions as \emph{cosmological symmetries} and make them mathematically precise momentarily.
 
@@ -254,7 +248,7 @@ We base our cosmological consideration on a particular choice of Killing vector 
 	\eqpunct{.}
 \end{align}
 \end{subequations}
-where we shall refer to the~$\vect{\Pvec}_\alpha$ and the~$\vect{\Lvec}_\alpha$ as generating translations and rotations, respectively. Note that, although the definition of this Lie algebra stands for itself, we gain some intuition on it for illustrative purposes alone. First, \eqref{eq:rot_algebra} represents the standard rotation algebra that shall lead us to an isotropic spacetime. For homogeneity we consider a notion of spacetime translations in~\eqref{eq:trans_algebra}, but have no reason to require the commutator to vanish. Instead, we demand~$\spatcurv=\const$ for homogeneity. Even though we are working without a geometric structure such as a metric at this point, this commutator bestows upon the parameter~$\spatcurv$ a notion of curvature. This is in the sense that curvature causes rotations along a closed path on the manifold. Finally, \eqref{eq:rottrans_algebra} connects the notions of rotations and translations in the canonical sense. Illustratively speaking, it specifies that a rotated translation is just a translation again, but in another direction.
+where we shall refer to the~$\vect{\Pvec}_\alpha$ and the~$\vect{\Lvec}_\alpha$ as generating translations and rotations, respectively. Although the definition of this Lie algebra stands for itself, we add a few comments for illustrative purposes alone. First, \eqref{eq:rot_algebra} represents the standard rotation algebra that shall lead us to an isotropic spacetime. For homogeneity we consider a notion of spacetime translations in~\eqref{eq:trans_algebra}, but have no reason to require the commutator to vanish. Instead, we demand~$\spatcurv=\const$ for homogeneity. Even though we are working without a geometric structure such as a metric at this point, this commutator bestows upon the parameter~$\spatcurv$ a notion of curvature. This is in the sense that curvature causes rotations along a closed path on the manifold. Finally, \eqref{eq:rottrans_algebra} connects the notions of rotations and translations in the canonical sense. Illustratively speaking, it specifies that a rotated translation is just a translation again, but in another direction.
 
 Now to find vector fields that satisfy the cosmological commutation relations we begin by denoting a particular choice of coordinates on the spacetime manifold with~${\coordX^a=\{\coordw,\coordx,\coordy,\coordz\}}$ and define
 \begin{equation}
@@ -269,7 +263,7 @@ These vector fields allow us to construct
 	\quad &\text{and} \quad
 	\vect{\Pvec}_\alpha=\func\of{\coordX}\vect{\Dvec}_\alpha
 \end{align}
-where the~$\vect{\Lvec}_\alpha$ indeed already fulfill their commutation relation~\eqref{eq:rot_algebra}. To determine~$\func\of{\coordX}$ such that also the remaining commutation relations are fulfilled, we first find from~\eqref{eq:rottrans_algebra}
+where the~$\vect{\Lvec}_\alpha$ indeed already fulfil their commutation relation~\eqref{eq:rot_algebra}. To determine~$\func\of{\coordX}$ such that also the remaining commutation relations are fulfilled, we first find from~\eqref{eq:rottrans_algebra}
 \begin{align}
 	&\comm{\vect{\Pvec}_\alpha}{\vect{\Lvec}_\beta}={\levciv_{\alpha\beta}}^\mu\vect{\Pvec}_\mu+\underbrace{{\levciv_{\beta\mu}}^\nu\coordX^\mu\left(\partial_\nu\func\of{\coordX}\right)}_{\vect{\Lvec}_\beta\func\of{\coordX}\overset{!}{=}0}\partial_\alpha\\
 	\implies \quad &\func\of{\coordX}=\func\of{\coordr} \quad \text{with} \quad \coordr^2=\coordx^2+\coordy^2+\coordz^2
@@ -540,18 +534,18 @@ Technically equivalent to the computations performed in~\autoref{sec:symm_geom},
 
 The explicit calculations are detailed in the supplementary \namednbref{Mathematica notebook}{nb:cosmo_em} for both metric and area-metric source tensors. As we found when applying the symmetry conditions to the geometry~\autoref{sec:symm_geom}, we obtain two and three undetermined degrees of freedom for the source tensors of metric and area-metric geometry, respectively. Specifically, we solve the Killing conditions for the metric source tensor to find
 \begin{equation}\label{eq:cosmo_fluid_met_raw}
-	\sourcet_{ab}=\begin{pmatrix}
+	\metind\sourcet_{ab}=\begin{pmatrix}
 		\Const_1\oft & 0\\
 		0 & \Const_2\oft\spatmet_{\mu\nu}
 	\end{pmatrix}
 \end{equation}
 where the two functions $\Const_1\oft$ and $\Const_2\oft$ remain free. For the area-metric source tensor we find a third free function~$\Const_3\oft$ in
 \begin{align}\label{eq:cosmo_fluid_armet_raw}
-	\begin{split}
+	\begin{armetcases}
 		\sourcet_{t\alpha t\beta}&=\Const_1\oft\spatmet_{\alpha\beta}\\
 		\sourcet_{t\alpha\beta\gamma}&=\Const_2\oft\sqrt{\spatmet}\levciv_{\alpha\beta\gamma}\\
 		\sourcet_{\alpha\beta\gamma\delta}&=2\Const_3\oft\spatmet_{\alpha\antisyml\gamma}\spatmet_{\delta\antisymr\beta}
-	\end{split}
+	\end{armetcases}
 \end{align}
 just as we did for the area-metric geometry in~\eqref{eq:cosmo_armet_param_raw}.
 
@@ -559,26 +553,20 @@ just as we did for the area-metric geometry in~\eqref{eq:cosmo_armet_param_raw}.
 
 It is the matter of parametrizing the degrees of freedom with regard to their physical interpretation that differs from the investigation conducted in~\autoref{sec:symm_geom}. To this end, we employ the notion of energy-momentum in general geometries we developed in~\autoref{sec:grav_sources}. For both the metric and area-metric source tensor we can calculate its associated Gotay-Marsden energy-momentum tensor~\eqref{eq:gm_emt} to
 \begin{align}
-	%&\begin{metric}		
-		\frac{1}{\sqrtmet}{{\EMt_\met}^m}_n&=\begin{pmatrix}
-			\frac{\Const_1\oft}{\Nlapse\oft^2} & 0 \\
-			0 & -\frac{\Const_2\oft}{\scalea\oft^2}\krond^\mu_\nu
-		\end{pmatrix}
-	%\end{metric}
-	\label{eq:em_met_raw}\\
-	\text{and} \quad %&\begin{armetric}
-		\frac{1}{\volel_\armet}{{\EMt_\armet}^m}_n&=\begin{pmatrix}
-			-\frac{6\Const_1\oft}{\scalea\oft^2\Nlapse\oft^2}+\frac{6\Const_2\oft}{\scalea\oft^3\Nlapse\oft} & 0 \\
-			0 & \left(-\frac{2\Const_1\oft}{\scalea\oft^2\Nlapse\oft^2}+\frac{6\Const_2\oft}{\scalea\oft^3\Nlapse\oft}+\frac{4\Const_3\oft}{\scalea\oft^4\scalec\oft^2}\right)\krond^\mu_\nu
-		\end{pmatrix}
- 	%\end{armetric}
- 	\label{eq:em_armet_raw}
+	\metind &\frac{1}{\sqrtmet}{{\EMt_\met}^m}_n=\begin{pmatrix}
+		\frac{\Const_1\oft}{\Nlapse\oft^2} & 0 \\
+		0 & -\frac{\Const_2\oft}{\scalea\oft^2}\krond^\mu_\nu
+	\end{pmatrix}\label{eq:em_met_raw} \quad \text{and}\\
+	\armetind &\frac{1}{\volel_\armet}{{\EMt_\armet}^m}_n=\begin{pmatrix}
+		-\frac{6\Const_1\oft}{\scalea\oft^2\Nlapse\oft^2}+\frac{6\Const_2\oft}{\scalea\oft^3\Nlapse\oft} & 0 \\
+		0 & \left(-\frac{2\Const_1\oft}{\scalea\oft^2\Nlapse\oft^2}+\frac{6\Const_2\oft}{\scalea\oft^3\Nlapse\oft}+\frac{4\Const_3\oft}{\scalea\oft^4\scalec\oft^2}\right)\krond^\mu_\nu
+	\end{pmatrix}\label{eq:em_armet_raw}
 	\eqpunct{,}
 \end{align}
 respectively. We also recall from \autoref{sec:grav_sources} that the Gotay-Marsden energy-momentum tensor fulfills a Noether conservation law, in turn restoring its interpretation of energy-momentum. From~\eqref{eq:em_cons} we find the continuity equations
 \begin{align}
-	0&=\diffp{}{t}\left(\frac{\Const_1}{\Nlapse^2}\right)+3\frac{\dt{\scalea}}{\scalea}\left(\frac{\Const_1}{\Nlapse^2}+\frac{\Const_2}{\scalea^2}\right)\label{eq:cosmo_cont_met_raw}\\
-	\text{and} \quad 0&=\diffp{}{t}\left(-\frac{6\Const_1}{\scalea^2\Nlapse^2}+\frac{6\Const_2}{\scalea^3\Nlapse}\right)+3\frac{\dt{\scalea}}{\scalea}\left(-\frac{4\Const_1}{\scalea^2\Nlapse^2}-\frac{4\Const_3}{\scalea^4\scalec^2}\right)-\frac{\dt{\scalec}}{\scalec}\frac{6\Const_3}{\scalea^4\scalec^2}\label{eq:cosmo_cont_armet_raw}
+	\metind 0&=\diffp{}{t}\left(\frac{\Const_1}{\Nlapse^2}\right)+3\frac{\dt{\scalea}}{\scalea}\left(\frac{\Const_1}{\Nlapse^2}+\frac{\Const_2}{\scalea^2}\right) \quad \text{and}\label{eq:cosmo_cont_met_raw}\\
+	\armetind 0&=\diffp{}{t}\left(-\frac{6\Const_1}{\scalea^2\Nlapse^2}+\frac{6\Const_2}{\scalea^3\Nlapse}\right)+3\frac{\dt{\scalea}}{\scalea}\left(-\frac{4\Const_1}{\scalea^2\Nlapse^2}-\frac{4\Const_3}{\scalea^4\scalec^2}\right)-\frac{\dt{\scalec}}{\scalec}\frac{6\Const_3}{\scalea^4\scalec^2}\label{eq:cosmo_cont_armet_raw}
 \end{align}
 for metric and area-metric cosmology, respectively. The spatial components of~\eqref{eq:em_cons} are trivially fulfilled in both cases.
 
@@ -591,12 +579,12 @@ that both depend on the choice of coordinates, as notions of energy inherently d
 
 With this definition we may directly identify the $\frac{1}{\volel}{\EMt^t}_t$ component of~\eqref{eq:em_met_raw} and~\eqref{eq:em_armet_raw} as metric and area-metric energy density, respectively, since neither depends on spatial coordinates. Crucially, and in fact giving both quantities their interpretation, this definition reduces the continuity equations to expressions of energy conservation. This becomes apparent when we choose the geometric degrees of freedom ${\vol\oft\propto\scalea\oft^3}$ and ${\lnc\oft=\log{\scalec\oft}}$ as variables for~$\internen(\vol,\lnc)$ to formulate the continuity equations~\eqref{eq:cosmo_cont_met_raw} and~\eqref{eq:cosmo_cont_armet_raw} as
 \begin{align}
-	0&=\underbrace{
+	\metind 0&=\underbrace{
 		\dif{\left(\dens\vol\right)}
 	}_{
 		=\dif{\internen}
-	}+\dif{\vol}\frac{\Const_2}{\scalea^2}\label{eq:cosmo_cont_met_withdens}\\
-	\text{and} \quad 0&=\underbrace{
+	}+\dif{\vol}\frac{\Const_2}{\scalea^2} \quad \text{and} \label{eq:cosmo_cont_met_withdens}\\
+	\armetind 0&=\underbrace{
 		\dif{\left(\dens\vol\right)}
 	}_{
 		=\dif{\internen}
@@ -621,38 +609,39 @@ that is neither energy density nor momentum, but a third cosmological matter deg
 
 Finally, the definition of the parameters~$\dens$, $\press$ and $\q$ taken together evaluate to
 \begin{align}
-	\begin{cases}
+	\begin{metcases}
 		\dens=\frac{\Const_1}{\Nlapse^2}\\
 		\press=\frac{\Const_2}{\scalea^2}
-	\end{cases} \quad &\text{and} \quad \begin{cases}
+	\end{metcases} \quad &\text{and} \quad \begin{armetcases}
 		\dens=-\frac{6\Const_1}{\scalea^2\Nlapse^2}+\frac{6\Const_2}{\scalea^3\Nlapse}\\
 		\press=\frac{2\Const_1}{\scalea^2\Nlapse^2}-\frac{6\Const_2}{\scalea^3\Nlapse}-\frac{4\Const_3}{\scalea^4\scalec^2}\\
 		\q=-\frac{6\Const_3}{\scalea^4\scalec^2}
-	\end{cases}\\
-	\iff \begin{cases}
+	\end{armetcases}\\
+	\iff \quad
+	\begin{metcases}
 		\Const_1=\Nlapse^2\dens\\
 		\Const_2=\scalea^2\press
-	\end{cases} \quad &\text{and} \quad \begin{cases}
+	\end{metcases} \quad &\text{and} \quad \begin{armetcases}
 		\Const_1=-\frac{1}{12}\scalea^2\Nlapse^2\left(3\dens+3\press-2\q\right)\\
 		\Const_2=-\frac{1}{12}\scalea^3\Nlapse\left(\dens+3\press-2\q\right)\\
 		\Const_3=-\frac{1}{6}\scalea^4\scalec^2\q
-	\end{cases}
+	\end{armetcases}
 \end{align}
 that constitute a unique parametrization of the cosmological metric and area-metric source tensors~\eqref{eq:cosmo_fluid_met_raw} and~\eqref{eq:cosmo_fluid_armet_raw}. Specifically, we obtain the cosmological metric source tensor
 \begin{align}\label{eq:sourcet_fluid_met}
-	\sourcet_{ab}=\begin{pmatrix}
+	\metind\sourcet_{ab}=\begin{pmatrix}
 		\dens\oft\Nlapse\oft^2 & 0\\
 		0 & \press\oft\scalea\oft^2\spatmet_{\mu\nu}
 	\end{pmatrix}
 \end{align}
 that is precisely the familiar Hilbert stress-energy tensor of an ideal fluid, but derived as the general solution to the cosmological Killing condition on the gravitational source. For area-metric cosmology we obtain the gravitational source tensor
 \begin{align}\label{eq:sourcet_fluid_armet}
-	\begin{split}	
+	\begin{armetcases}	
 		\sourcet_{0\alpha 0\beta}&=-\frac{1}{12}\Nlapse\oft^2\scalea\oft^2\left(3\dens\oft+3\press\oft-2\q\oft\right)\spatmet_{\alpha\beta}\\
 		\sourcet_{0\alpha\beta\gamma}&=-\frac{1}{12}\Nlapse\oft\scalea\oft^3\sqrt{\spatmet} \left(\dens\oft+3\press\oft-2\q\oft\right)\levciv_{\alpha\beta\gamma}\\
 		\sourcet_{\alpha\beta\gamma\delta}&=-\frac{1}{3}\scalea\oft^4\scalec\oft^2\spatmet_{\alpha\antisyml\gamma}\spatmet_{\delta\antisymr\beta}
 		\eqpunct{.}
-	\end{split}
+	\end{armetcases}
 \end{align}
 that exhibits an additional cosmological matter degree of freedom~$\q\oft$ defined as~\eqref{eq:q_def}. When we now evaluate the Gotay-Marsden energy-momentum tensor for metric and area-metric cosmology, we find that both take the same form
 \begin{equation}\label{eq:emt_fluid}
@@ -667,11 +656,11 @@ However, the parameter~$\q\oft$ still sources the gravitational dynamics through
 
 Even though the non-metric gravitational source does not appear as energy-momentum, its remains consistent with the covariant conservation law~\eqref{eq:em_cons}. Specifically, in metric cosmology this conservation law reduces to the canonical cosmological continuity equation
 \begin{equation}\label{eq:cosmo_cont_met}
-	0=\dt{\dens}+3\frac{\dt{\scalea}}{\scalea}(\dens+\press) \quad \text{and trivial spatial components}
+	\metind 0=\dt{\dens}+3\frac{\dt{\scalea}}{\scalea}(\dens+\press) \quad \text{and trivial spatial components}
 \end{equation}
 by evaluating~\eqref{eq:cosmo_cont_met_raw}. In area-metric cosmology, the same conservation law~\eqref{eq:cosmo_cont_armet_raw} evaluates to
 \begin{equation}\label{eq:cosmo_cont_armet}
-	0=\dt{\dens}+3\frac{\dt{\scalea}}{\scalea}(\dens+\press)+\q\dt{\lnc} \quad \text{and trivial spatial components.}
+	\armetind 0=\dt{\dens}+3\frac{\dt{\scalea}}{\scalea}(\dens+\press)+\q\dt{\lnc} \quad \text{and trivial spatial components.}
 \end{equation}
 Here, the parameter~$\q\oft$ appears as an internal fluid degree of freedom that measures changes in fluid internal energy with respect to the additional geometric degree of freedom~$\lnc$, just as pressure~$\press\oft$ measures the same with respect to changes in volume~$\vol$.
 
@@ -714,28 +703,28 @@ The calculations in this chapter were performed in parallel to those in~\autocit
 
 The publication~\autocite{Schuller2016} develops the gravitational closure equations, listed explicitly in \appref{sec:closure_eqns}, from necessary conditions on the geometrodynamics so that both geometry and matter share a common canonical evolution of initial data hypersurfaces. We therefore work in a foliation of spacetime into initial data hypersurfaces that carry projections of the metric or area-metric tensor fields. The remaining geometric degrees of freedom are then encoded in a lapse function and a shift vector. We identified the lapse function~$\Nlapse\oft$ and found a vanishing shift vector for both metric and area-metric geometry under cosmological symmetries in \autoref{sec:symm}. In this foliation, and formulated in the language established in~\autocite{Schuller2016}, the projected geometry on hypersurfaces reduces to the \emph{initial data surface tensor fields}
 \begin{equation}
-	\metbar^{\alpha\beta}\defeq-\met^{\alpha\beta} \quad \text{and} \quad \begin{cases}
+	\metind \metbar^{\alpha\beta}\defeq-\met^{\alpha\beta} \quad \text{and} \quad \begin{armetcases}
 		\armetbar^{\alpha\beta}&\defeq-\Nlapse\oft^2\armet^{t\alpha t\beta}\\
 		\armetbbar_{\alpha\beta}&\defeq\frac{1}{4}\frac{1}{\armetbar}\levciv_{\alpha\mu\nu}\levciv_{\beta\rho\sigma}\armet^{\mu\nu\rho\sigma}\\
 		{\armetbbbar^\alpha}_\beta&\defeq\frac{1}{2}\frac{\Nlapse\oft}{\sqrt{\armetbar}}\levciv_{\beta\mu\nu}\armet^{t\alpha\mu\nu}
-	\end{cases}
+	\end{armetcases}
 \end{equation}
 for metric and area-metric geometry, respectively. For the \FLRW{} metric~\eqref{eq:flrw_metric} and the cosmological area-metric~\eqref{eq:cosmo_armet} these tensor fields reduce to
 \begin{equation}
-	\metbar^{\alpha\beta}=\frac{1}{\scalea\oft^2}\spatmet^{\alpha\beta} \quad \text{and} \quad \begin{cases}
+	\metind \metbar^{\alpha\beta}=\frac{1}{\scalea\oft^2}\spatmet^{\alpha\beta} \quad \text{and} \quad \begin{armetcases}
 		\armetbar^{\alpha\beta}=\frac{1}{\scalea\oft^2}\spatmet^{\alpha\beta}\\
 		\armetbbar_{\alpha\beta}=\frac{\scalea\oft^2}{\scalec\oft^2}\spatmet_{\alpha\beta}\\
 		{\armetbbbar^\alpha}_\beta=0
 		\eqpunct{.}
-	\end{cases}
+	\end{armetcases}
 \end{equation}
 We proceed by extracting from these quantities the geometric degrees of freedom~$\geomdof^A$ and enumerate them with an index~$A$ instead of symmetrized tensor components. To this end we define
 \begin{equation}
-	\metdof^A\defeq\intertw{A}{\alpha\beta}\metbar^{\alpha\beta} \quad \text{and} \quad \begin{cases}
+	\metind \metdof^A\defeq\intertw{A}{\alpha\beta}\metbar^{\alpha\beta} \quad \text{and} \quad \begin{armetcases}
 		\armetdof^\overbar{A}\defeq\intertw{\overbar{A}}{\alpha\beta}\armetbar^{\alpha\beta} &\overbar{A}=1\cont 6\\
 		\armetdof^\overbar{\overbar{A}}\defeq\idmat^{\left(\overbar{\overbar{A}}-6\right)\,B}\invintertw{B}{\alpha\beta}\armetbbar_{\alpha\beta} &\overbar{\overbar{A}}=7\cont 12\\
 		\armetdof^\overbar{\overbar{\overbar{A}}}\defeq e^{(\overbar{\overbar{\overbar{A}}}-12)\,B}\invintertw{B}{\alpha\beta}\metbar_{\alpha\gamma}{\armetbbbar^\gamma}_\beta &\overbar{\overbar{\overbar{A}}}=13\cont 17
-	\end{cases}
+	\end{armetcases}
 \end{equation}
 \todo{check this} where we employ the same choice of intertwiners as chosen in~\autocite{Schuller2016}, namely~\autocite{Reiss}
 \begin{equation}
@@ -748,25 +737,25 @@ We proceed by extracting from these quantities the geometric degrees of freedom~
 		\begin{psmallmatrix}0&0&0\\0&0&0\\0&0&1\end{psmallmatrix}
 	\right\}
 \end{equation}
-and their inverses that are defined through $\intertw{A}{\alpha\beta}\invintertw{B}{\alpha\beta}=\krond^A_B$. The objects~$\left\{t^B,e^{(1)\,B},\cont e^{(5)\,B}\right\}$ denote a choice of orthonormal basis of the~$\mathbb{R}^6$ that is largely irrelevant for our procedure since~${\armetbbbar^\alpha}_\beta=0$. Now restricting ourselves to~$\spatcurv=0$ and choosing Cartesian coordinates we find the non-vanishing components
+and their inverses that are defined through $\intertw{A}{\alpha\beta}\invintertw{B}{\alpha\beta}=\krond^A_B$. The objects $\left\{t^B,e^{(1)\,B},\cont e^{(5)\,B}\right\}$ denote a choice of orthonormal basis of the~$\mathbb{R}^6$ that is largely irrelevant for our procedure since~${\armetbbbar^\alpha}_\beta=0$. Now restricting ourselves to~$\spatcurv=0$ and choosing Cartesian coordinates we find the non-vanishing components
 \begin{equation}\label{eq:geomdof_cosmo}
-	\metdof^1=\metdof^4=\metdof^6=\frac{1}{\scalea^2} \quad \text{and} \quad \begin{cases}
+	\metind \metdof^1=\metdof^4=\metdof^6=\frac{1}{\scalea^2} \quad \text{and} \quad \begin{armetcases}
 		\armetdof^\overbar{A} \quad \text{same as metric components}\\
 		\armetdof^7=\armetdof^{10}=\armetdof^{12}=\frac{\scalea^2}{\scalec^2}
 	\eqpunct{.}
-	\end{cases}
+	\end{armetcases}
 \end{equation}
 
 \statement{The cosmological symmetries make the closure equations decompose \\ into distinct sectors.}
 
 All input coefficients for the closure equations we may now formulate in terms of the variables~$\geomdof^A$ and their partial derivatives. These \emph{kinematical coefficients} for metric and area-metric geometries are given explicitly in~\autocite{Schuller2016}. For a metric geometry we compute them from the~$\geomdof^A$ as
 \begin{equation}
-	\begin{cases}
+	\begin{metcases}
 		\pcoeff^{\alpha\beta}=\met^{\alpha\beta}=-\invintertw{A}{\alpha\beta}\geomdof^A \\
 		\Ecoeff{A}{\mu}={\geomdof^A}_{,\mu}\\
 		\Fcoeff{A}{\gamma}{\mu}=2\intertw{A}{\mu\alpha}\invintertw{B}{\gamma\alpha}\geomdof^B\\
 		\Mcoeff{A}{\mu}=0
-	\end{cases}% \quad \text{and} \quad \begin{cases}
+	\end{metcases}% \quad \text{and} \quad \begin{cases}
 		%\pcoeff^{\alpha\beta}=\frac{1}{6}\left(\armetbar^{\alpha\gamma}\armetbar^{\beta\delta}\armetbbar_{\gamma\delta}-\armetbar^{\alpha\beta}\armetbar^{\gamma\delta}\armetbbar_{\gamma\delta}-2\armetbar^{\alpha\beta}\armetbar^{\delta\mu}\armetbar^{\gamma\nu}\idmat_{\mu\rho}{\armetbbbar^\rho}_\gamma\idmet_{\nu\sigma}{\armetbbbar^\sigma}_\delta+3\armetbar^{\gamma\delta}\armetbar^{\alpha\mu}\armetbar^{\beta\nu}\idmat_{\mu\rho}{\armetbbbar^\rho}_\gamma\idmat_{\nu\sigma}{\armetbbbar^\sigma}_\delta\right)\\
 		%\Ecoeff{A}{\mu}={\geomdof^A}_{,\mu}\\
 		%\Fcoeff{\bar{A}}{\gamma}{\mu}=2\intertw{\bar{A}}{\mu\alpha}\invintertw{B}{\gamma\alpha}\geomdof^B\\
@@ -787,15 +776,15 @@ Furthermore, under these symmetries also
 \end{equation}
 even in area-metric geometry. Only the coefficients~$\Fcoeff{A}{\gamma}{\mu}$ remain sparsely populated with non-vanishing components
 \begin{align}
-	&\Fcoeff{1}{\coordr}{\coordr}=\sqrt{2}\Fcoeff{2}{\coordr}{\coordtheta}=\sqrt{2}\Fcoeff{3}{\coordr}{\coordphi}=\Fcoeff{4}{\coordtheta}{\coordtheta}=\sqrt{2}\Fcoeff{5}{\coordtheta}{\coordphi}=\Fcoeff{6}{\coordphi}{\coordphi}=\frac{2}{\scalea^2}\\
-	\text{and} \quad &\begin{cases}
+	&\metind \Fcoeff{1}{\coordr}{\coordr}=\sqrt{2}\Fcoeff{2}{\coordr}{\coordtheta}=\sqrt{2}\Fcoeff{3}{\coordr}{\coordphi}=\Fcoeff{4}{\coordtheta}{\coordtheta}=\sqrt{2}\Fcoeff{5}{\coordtheta}{\coordphi}=\Fcoeff{6}{\coordphi}{\coordphi}=\frac{2}{\scalea^2}\\
+	\text{and} \quad &\begin{armetcases}
 		\Fcoeff{\overbar{A}}{\alpha}{\beta} \quad \text{same as metric components}\\
 		\Fcoeff{7}{\coordr}{\coordr}=\sqrt{2}\Fcoeff{8}{\coordr}{\coordtheta}=\sqrt{2}\Fcoeff{9}{\coordr}{\coordphi}=\Fcoeff{10}{\coordtheta}{\coordtheta}=\sqrt{2}\Fcoeff{11}{\coordtheta}{\coordphi}=\Fcoeff{12}{\coordtheta}{\coordtheta}=-\frac{2\scalea^2}{\scalec^2}
-	\end{cases}
+	\end{armetcases}
 \end{align}
 along with
 \begin{equation}
-	{\pcoeff_\met}^{\alpha\beta}=-\frac{1}{\scalea\oft}\spatmet^{\alpha\beta} \quad \text{and} \quad {\pcoeff_\armet}^{\alpha\beta}=-\frac{1}{3}\frac{1}{\scalea\oft^2\scalec\oft^2}\spatmet^{\alpha\beta}
+	\metind {\pcoeff}^{\alpha\beta}=-\frac{1}{\scalea\oft}\spatmet^{\alpha\beta} \quad \text{and} \quad \armetind {\pcoeff}^{\alpha\beta}=-\frac{1}{3}\frac{1}{\scalea\oft^2\scalec\oft^2}\spatmet^{\alpha\beta}
 \end{equation}
 and occasional non-vanishing derivatives of the kinematical coefficients by the~$\geomdof^A$ or their respective derivatives.
 
@@ -810,23 +799,23 @@ where the~$\canmom^A$ are velocities obtained from the geometric degrees of free
 \end{equation}
 For the cosmological~$\geomdof^A$ computed as~\eqref{eq:geomdof_cosmo}, we find the non-vanishing velocities to be given by
 \begin{equation}
-	\canmommet^1=\canmommet^4=\canmommet^6=-\frac{2\dt{\scalea}}{\scalea^3\Nlapse}
-	\quad \text{and} \quad \begin{cases}
+	\metind \canmommet^1=\canmommet^4=\canmommet^6=-\frac{2\dt{\scalea}}{\scalea^3\Nlapse}
+	\quad \text{and} \quad \begin{armetcases}
 		\canmomarmet^\overbar{A} \quad \text{same as metric components}\\
 		\canmomarmet^7=\canmomarmet^{10}=\canmomarmet^{12}=\frac{2\scalea\left(\dt{\scalea}\scalec-\scalea\dt{\scalec}\right)}{\scalec^3\Nlapse}
 	\eqpunct{.}
-	\end{cases}
+	\end{armetcases}
 \end{equation}
 We therefore need to determine, from the closure equations, only the subset of dynamical coefficients~$\{\Coeff,\Coeff_A,\cont\}$ that couple to non-vanishing products of the~$\canmom^A$.
 
-We have reduced the main objective of computing the class of consistent gravity theories down to the exercise of solving the closure equations for the expansion coefficients~$\{\Coeff,\Coeff_A,\cont\}$. They constitute a set of partial differential equations with variables~$\{\geomdof^A,{\geomdof^A}_{,\mu},\cont\}$ at this point, where derivatives of the dynamical coefficients by these variables are denoted as
+We have reduced the main objective of computing the class of consistent gravity theories down to the exercise of solving the closure equations for the expansion coefficients $\{\Coeff,\Coeff_A,\cont\}$. They constitute a set of partial differential equations with variables $\{\geomdof^A,{\geomdof^A}_{,\mu},\cont\}$ at this point, where derivatives of the dynamical coefficients by these variables are denoted as
 \begin{equation}
 	\Cdiff{}{A}{}\equiv\diffp{\Coeff}{{{\geomdof^A}_{}}}\eqpunct{,} \quad \Cdiff{}{A}{\mu}\equiv\diffp{\Coeff}{{{\geomdof^A}_{,\mu}}}\eqpunct{,} \quad \cont
 	%\eqpunct{.}
 \end{equation}
 Since under cosmological symmetries the variables~$\geomdof^A$ are explicitly given by~\eqref{eq:geomdof_cosmo} in terms of another set of variables
 \begin{equation}
-	\cosmodof[\met]{i}=\{\scalea\} \quad \text{and} \quad \cosmodof[\armet]{i}=\{\scalea,\scalec\}
+	\metind \cosmodof{i}=\{\scalea\} \quad \text{and} \quad \armetind\cosmodof{i}=\{\scalea,\scalec\}
 	\eqpunct{,}
 \end{equation}
 it is convenient to perform a change of variables in the closure equations. As soon as we have obtained expressions for all derivatives $\{\Cdiff{}{A}{},\Cdiff{}{A}{\mu},\cont\}$ of a particular dynamical coefficient, we may compute its derivatives by the new variables~$\cosmodof{i}$ as
@@ -836,17 +825,17 @@ it is convenient to perform a change of variables in the closure equations. As s
 \end{equation}
 Since hypersurface derivatives of the~$\geomdof^A$ vanish here, we are left with the exercise of solving the closure equations for the derivatives~$\Cdiff{}{A}{}$ corresponding to non-vanishing~$\geomdof^A$ for each dynamical coefficient~$\{\Coeff,\Coeff_A,\cont\}$. Having obtained them, we can formulate partial differential equations in the new variables with the respective Jacobian
 \begin{align}\label{eq:cosmo_jac}
-	\partial_i\metdof^A&=\begin{psmallmatrix}
+	\metind \partial_i\metdof^A&=\begin{psmallmatrix}
 		-\frac{2}{\scalea^3} & 0 & 0 & -\frac{2}{\scalea^3} & 0 & -\frac{2}{\scalea^3}
-	\end{psmallmatrix}_{iA}\\
-	\text{and} \quad \partial_i\armetdof^A&=\begin{psmallmatrix}
+	\end{psmallmatrix}_{iA} \quad \text{and}\\
+	\armetind \partial_i\armetdof^A&=\begin{psmallmatrix}
 		-\frac{2}{\scalea^3} & 0 & 0 & -\frac{2}{\scalea^3} & 0 & -\frac{2}{\scalea^3} & \frac{2\scalea}{\scalec^2} & 0 & 0 & \frac{2\scalea}{\scalec^2} & 0 & \frac{2\scalea}{\scalec^2} & 0&0&0&0&0\\
 		0&0&0&0&0&0&-\frac{2\scalea^2}{\scalec^3}&0&0&-\frac{2\scalea^2}{\scalec^3}&0&-\frac{2\scalea^2}{\scalec^3}&0&0&0&0&0
 	\end{psmallmatrix}_{iA}
 \end{align}
 where the first index~$i$ specifies the row and the second index~$A$ the column of the representation matrices.
 
-Now in order to proceed with solving the closure equations, we investigate their structure for the problem at hand. As is apparent from \autoref{fig:CE_cosmo}, the closure equations decouple into independent sectors, one for each order in the dynamical coefficients $\Coeff$. We obtain this decomposition for a flat~${\spatcurv=0}$ cosmology formulated in Cartesian coordinates and with the choice of parametrization of the geometric degrees of freedom we developed above. Arbitrary~$\spatcurv$ would add significant complication to this procedure, in so far as that the then non-vanishing derivatives of the~$\geomdof^A$ couple all derivative orders~$\{\Coeff,\Cdiff{}{A}{},\Cdiff{}{A}{\mu}\,\cont\}$ of a dynamical coefficient, thereby also linking the sectors we investigate here. The reader may find the explicit derivation for metric \FLRW{} cosmology of arbitrary~$\spatcurv$ in the supplementary \namednbref{Mathematica notebook}{nb:constr_cosmo}. Restricting ourselves to~$\spatcurv=0$ for illustrative purposes here, we now proceed by stepping through each sector in turn and investigate its respective contribution to the final solution.
+Now in order to proceed with solving the closure equations, we investigate their structure for the problem at hand. As is apparent from \autoref{fig:CE_cosmo}, the closure equations decouple into independent sectors, one for each order in the dynamical coefficients $\Coeff$. We obtain this decomposition for a flat~${\spatcurv=0}$ cosmology formulated in Cartesian coordinates and with the choice of parametrization of the geometric degrees of freedom we developed above. Arbitrary~$\spatcurv$ would add significant complication to this procedure, in so far as that the then non-vanishing derivatives of the~$\geomdof^A$ couple all derivative orders $\{\Coeff,\Cdiff{}{A}{},\Cdiff{}{A}{\mu}\,\cont\}$ of a dynamical coefficient, thereby also linking the sectors we investigate here. The reader may find the explicit derivation for metric \FLRW{} cosmology of arbitrary~$\spatcurv$ in the supplementary \namednbref{Mathematica notebook}{nb:constr_cosmo}. Restricting ourselves to~$\spatcurv=0$ for illustrative purposes here, we now proceed by stepping through each sector in turn and investigate its respective contribution to the final solution.
 
 \begin{figure}
 	\begin{center}
@@ -865,33 +854,33 @@ Only the first closure equation \CEref{1}{} determines the lowest-order dynamica
 \end{equation}
 or explicitly, with the coefficient~$\Fcoeff{A}{\alpha}{\beta}$ evaluated as well, to a set of six independent equations
 \begin{align}
-	\begin{cases}
+	\begin{metcases}
  		\Cdiff{}{1}{}=\Cdiff{}{4}{}=\Cdiff{}{6}{}=-\frac{\scalea^2}{2}\Coeff\\
  		0=\Cdiff{}{2}{}=\Cdiff{}{3}{}=\Cdiff{}{5}{}
- 	\end{cases} \quad &\text{and} \quad \begin{cases}
+ 	\end{metcases} \quad &\text{and} \quad \begin{armetcases}
 		\Cdiff{}{1}{}=\frac{\scalea^4}{\scalec^2}\Cdiff{}{7}{}-\frac{\scalea^2}{2}\Coeff\\
 		\Cdiff{}{2}{}=\frac{\sqrt{2}\scalea^4}{\scalec^2}\Cdiff{}{8}{}\\
 		\Cdiff{}{3}{}=\frac{\sqrt{2}\scalea^4}{\scalec^2}\Cdiff{}{9}{}\\
 		\Cdiff{}{4}{}=\frac{\scalea^4}{\scalec^2}\Cdiff{}{10}{}-\frac{\scalea^2}{2}\Coeff\\
 		\Cdiff{}{5}{}=\frac{\sqrt{2}\scalea^4}{\scalec^2}\Cdiff{}{11}{}\\
 		\Cdiff{}{6}{}=\frac{\scalea^4}{\scalec^2}\Cdiff{}{12}{}-\frac{\scalea^2}{2}\Coeff
-	\end{cases}
+	\end{armetcases}
 \end{align}
 for metric and area-metric cosmology, respectively. It is directly apparent that we have completely determined all derivatives of the coefficient~$\Coeff$ for metric cosmology, but retain a freedom in the solution for area-metric cosmology, since $\Cdiff{}{7}{}$ through~$\Cdiff{}{17}{}$ are left undetermined.
 
 We solve this set of equations with the aid of the variable transformation procedure we developed above. To this end, we perform a change of variables to~$\cosmodof{1}=\scalea$ and~$\cosmodof{2}=\scalec$ with the Jacobians~\eqref{eq:cosmo_jac} and find
 \begin{equation}
-	\partial_1\Coeff=\Cdiff{}{A}{}\partial_1\metdof^A=\frac{3}{\cosmodof{1}}\Coeff
-	\quad \text{and} \quad \begin{cases}
+	\metind \partial_1\Coeff=\Cdiff{}{A}{}\partial_1\metdof^A=\frac{3}{\cosmodof{1}}\Coeff
+	\quad \text{and} \quad \begin{armetcases}
 		\partial_1\Coeff=\frac{3}{\cosmodof{1}}\Coeff\\
 		\partial_2\Coeff=-\frac{2(\cosmodof{1})^2}{(\cosmodof{2})^3}\left(\Cdiff{}{7}{}+\Cdiff{}{10}{}+\Cdiff{}{12}{}\right)
 		\eqpunct{.}
-	\end{cases}
+	\end{armetcases}
 \end{equation}
 These partial differential equations we can simply integrate to arrive at
 \begin{equation}
-	\Coeff\of{\scalea}=\Func{0}{\met}\scalea^3
-	\quad \text{and} \quad \Coeff\of{\scalea,\scalec}=\Func{0}{0}\ofc\scalea^3\label{eq:lagr_term_C}
+	\metind \Coeff\of{\scalea}=\Func{0}{\met}\scalea^3
+	\quad \text{and} \quad \armetind \Coeff\of{\scalea,\scalec}=\Func{0}{0}\ofc\scalea^3\label{eq:lagr_term_C}
 \end{equation}
 where in the area-metric solution we obtain an undetermined function~$\Func{0}{0}\ofc$ that traces back to the freedom of the components $\Cdiff{}{7}{}$ through~$\Cdiff{}{17}{}$. We have already labeled the function with indices~${}^0_0$ in preparation to extend this procedure to the following sectors. In the metric solution we obtain an undetermined constant~$\Func{0}{\met}$ instead of a free function.
 
@@ -909,48 +898,49 @@ determines the dynamical coefficients~$\Coeff_A$. It represents a set of ten equ
 Since, in order to construct the Lagrangian term for this sector, we ultimately contract the~$\Coeff_A$ with the velocities~$\canmom^A$, only the~$\Coeff_A$ corresponding to non-vanishing~$\canmom^A$ are of interest to us. We find that the set of equations leaves only one relevant metric coefficient and two relevant area-metric coefficients independent, as
 \begin{equation}
 %	\begin{cases}
-		\Coeff_1=\Coeff_4=\Coeff_6\\
+		\metind \Coeff_1=\Coeff_4=\Coeff_6\\
 %		\Cdiff{1}{1}{}=-\frac{3\scalea^2}{2}\Coeff_1\\
 %		\Cdiff{1}{4}{}=\Cdiff{1}{6}{}=-\frac{\scalea^2}{2}\Coeff_1\\
 %		0=\Cdiff{1}{2}{}=\Cdiff{1}{3}{}=\Cdiff{1}{5}{}
 %	\end{cases}
-	\quad \text{and} \quad \begin{cases}
+	\quad \text{and} \quad \begin{armetcases}
 		\Coeff_1=\Coeff_4=\Coeff_6\\
 		\Coeff_7=\Coeff_{10}=\Coeff_{12}
 		\eqpunct{.}
-	\end{cases}
+	\end{armetcases}
 \end{equation}
 Furthermore, when changing variables, only those derivatives~$\Cdiff{A}{B}{}$ that correspond to non-vanishing entries in the Jacobian remain relevant in ${\partial_i\Coeff_A=\Cdiff{A}{B}{}\partial_i\geomdof^B}$. Instead of listing all derivatives by~$\geomdof^A$ here, we refer to the supplementary \namednbref{Mathematica notebook}{nb:constr_cosmo} and directly give the derivatives transformed to the new variables as
 \begin{equation}
-	\partial_1\Coeff_1=\frac{5}{\cosmodof{1}}\Coeff_1
-	\quad \text{and} \quad \begin{cases}
+	\metind \partial_1\Coeff_1=\frac{5}{\cosmodof{1}}\Coeff_1
+	\quad \text{and} \quad \begin{armetcases}
 		\partial_1\Coeff_1=\frac{5}{\cosmodof{1}}\Coeff_1\\
 		\partial_2\Coeff_1=-\frac{2\cosmodof{1}}{\cosmodof{2}^3}\left(\Cdiff{1}{7}{}+\Cdiff{1}{10}{}+\Cdiff{1}{12}{}\right)\\
 		\partial_1\Coeff_7=\frac{1}{\cosmodof{1}}\Coeff_7\\
 		\partial_2\Coeff_7=-\frac{2\cosmodof{1}}{\cosmodof{2}^3}\left(\Cdiff{7}{7}{}+\Cdiff{7}{10}{}+\Cdiff{7}{12}{}\right)
 		\eqpunct{.}
-	\end{cases}
+	\end{armetcases}
 \end{equation}
 These partial differential equations we can again integrate to arrive at
 \begin{equation}
-	\Coeff_1\of{\scalea}=-\frac{\Func{1}{\met}}{6}\scalea^5
-	\quad \text{and} \quad \begin{cases}
+	\metind \Coeff_1\of{\scalea}=-\frac{\Func{1}{\met}}{6}\scalea^5
+	\quad \text{and} \quad \begin{armetcases}
 		\Coeff_1\of{\scalea,\scalec}=-\frac{\Func{1}{0}\ofc}{6}\scalea^5\\
 		\Coeff_7\of{\scalea,\scalec}=-\frac{\Func{1}{1}\ofc}{6}\scalea
 		\eqpunct{,}
-	\end{cases}
+	\end{armetcases}
 \end{equation}
 where, as before, we find that an undetermined constant~$\Func{1}{\met}$ arises from the integration in metric cosmology. In contrast, in area-metric cosmology we find a free function of the additional geometric degree of freedom~$\scalec$ for each of the two contributing dynamical coefficients.
 
 We are left with constructing the Lagrangian term for this sector by contraction with the velocities. To make the area-metric solution more concise, we redefine the free functions as
 \begin{equation}
-	\Func{1}{0}\ofc\to\Func{1}{0}\ofc+\scalec^2\Func{1}{1}\ofc
+	\armetind \Func{1}{0}\ofc\to\Func{1}{0}\ofc+\scalec^2\Func{1}{1}\ofc
 	\eqpunct{,} \quad \Func{1}{1}\ofc\to\scalec^2\Func{1}{1}\ofc
 \end{equation}
 to arrive at
 \begin{equation}\label{eq:lagr_term_CA}
-	\Coeff_A{\canmom_\met}^A=\frac{1}{\Nlapse}\scalea^2\dt{\scalea}\Func{1}{\met}
-	\quad \text{and} \quad \Coeff_A{\canmom_\armet}^A=\frac{\scalea^3}{\Nlapse}\left(\frac{\dt{\scalea}}{\scalea}\Func{1}{0}\ofc+\frac{\dt{\scalec}}{\scalec}\Func{1}{1}\ofc\right)
+	\metind \Coeff_A{\canmom_\met}^A=\frac{1}{\Nlapse}\scalea^2\dt{\scalea}\Func{1}{\met}
+	\quad \text{and} \quad
+	\armetind \Coeff_A{\canmom_\armet}^A=\frac{\scalea^3}{\Nlapse}\left(\frac{\dt{\scalea}}{\scalea}\Func{1}{0}\ofc+\frac{\dt{\scalec}}{\scalec}\Func{1}{1}\ofc\right)
 	\eqpunct{.}
 \end{equation}
 These terms, multiplied by the lapse function~$\Nlapse$, appear in the gravity action~\eqref{eq:geom_action_expansion} of metric and area-metric cosmology, respectively. We notice here that the metric term is actually dynamically irrelevant, since~$3\scalea^2\dt{\scalea}=\partial_t\left(\scalea^3\right)$ is a total derivative. The metric $\Coeff_A$-sector contribution is therefore just a boundary term. However, in area-metric cosmology, the two free functions that arise make the term contribute to the gravitational dynamics non-trivially.
@@ -967,11 +957,13 @@ In addition to \CEref{10}{2}, that extends \CEref{1}{} to this sector, also \CEr
 which we can solve for the $\Coeff_{AB}$, their derivatives $\Cdiff{B_1B_2}{A}{}$ and the additional $\Cdiff{}{A}{\mu\nu}$, as we do explicitly in the supplementary \namednbref{Mathematica notebook}{nb:constr_cosmo}. Note that $\deg{\prpol}=2$ for metric, but ${\deg}\prpol=4$ for area-metric geometry. The generally complementary symmetry condition provided by~\CEref{14}{2} is trivially fulfilled here.
 
 Performing the same steps as before, we again change variables, integrate the partial differential equations and contract with the velocities in~\nbref{nb:constr_cosmo} to arrive at
-\begin{equation}\label{eq:lagr_term_CAB}
-	\Coeff_{AB}{\canmom_\met}^A{\canmom_\met}^B=\frac{1}{\Nlapse^2}\scalea\dt{\scalea}^2\Func{2}{\met}
-	\quad \text{and} \quad
-	\Coeff_{AB}{\canmom_\armet}^A{\canmom_\armet}^B=\frac{\scalea^3}{\Nlapse^2}\left(\lndt[2]{\scalea}\Func{2}{0}\ofc+\lndt{\scalea}\lndt{\scalec}\Func{2}{1}\ofc+\lndt[2]{\scalec}\Func{2}{1}\ofc\right)
-\end{equation}
+\begin{align}\label{eq:lagr_term_CAB}
+	\begin{split}		
+	\metind &\Coeff_{AB}{\canmom}^A{\canmom}^B=\frac{1}{\Nlapse^2}\scalea\dt{\scalea}^2\Func{2}{\met}
+	\quad \text{and}\\
+	\armetind &\Coeff_{AB}{\canmom}^A{\canmom}^B=\frac{\scalea^3}{\Nlapse^2}\left(\lndt[2]{\scalea}\Func{2}{0}\ofc+\lndt{\scalea}\lndt{\scalec}\Func{2}{1}\ofc+\lndt[2]{\scalec}\Func{2}{1}\ofc\right)
+	\end{split}
+\end{align}
 for the contribution to the gravitational action~\eqref{eq:geom_action_expansion} in metric and area-metric cosmology, respectively.
 
 In line with our results for the previous two sectors, we find that an undetermined constant appears in the metric Lagrangian that is replaced by free functions of the additional geometric degree of freedom~$\scalec\oft$ in area-metric cosmology. The metric contribution from this sector will shortly be identified as the Ricci scalar term in the gravitational action evaluated for \FLRW{} cosmology, along with a gravitational constant.
@@ -982,7 +974,7 @@ From the~$\Coeff_{ABC}$-sector onwards, the closure equation~\CEref{16}{N\geq 2}
 
 Also for area-metric cosmology, the equation~\CEref{16}{2} provides strong constraints on the coefficients~$\Coeff_{ABC}$, albeit not enough to make them vanish entirely. Instead, we extend the procedure employed in the previous sectors to solve~\CEref{16}{2} along with~\CEref{10}{3} for the coefficients~$\Coeff_{ABC}$ and their derivatives in~\nbref{nb:constr_cosmo}, change variables, integrate and contract with the velocities to obtain the area-metric contribution
 \begin{equation}\label{eq:lagr_term_CABC}
-	\Coeff_{ABC}{\canmom_\armet}^A{\canmom_\armet}^B{\canmom_\armet}^C=\frac{\scalea^3}{\Nlapse^3}\lndt[3]{\scalec}\Func{3}{3}\ofc
+	\armetind \Coeff_{ABC}{\canmom}^A{\canmom}^B{\canmom}^C=\frac{\scalea^3}{\Nlapse^3}\lndt[3]{\scalec}\Func{3}{3}\ofc
 \end{equation}
 to the gravitational action. Note that no contributions from~$\dt{\scalea}$ appear at this order, by virtue of~\CEref{16}{2}.
 
@@ -1411,7 +1403,7 @@ The present work and that conducted in~\autocite{DuellPhd} made clear that, unde
 
 In this thesis we generalized the notion of an ideal fluid to area-metric cosmology, in the sense that we defined it as an area-metric gravitational source tensor that satisfies the cosmological symmetries. In particular, we parametrized its additional non-metric degree of freedom through its contribution to the Gotay-Marsden conservation law. It appears that much insight into non-metric gravitational sources can be gained from further investigating how this non-metric fluid degree of freedom can be generated from internal degrees of freedom of the fluid constituents. To understand this mechanism one may explore area-metric fluid dynamics and their origin in area-metric point particle dynamics to ultimately connect these non-metric gravitational sources to cosmological phenomena.
 
-Based on the efforts to recover cosmological observables in~\autoref{sec:cosmo_tests} and previous work referenced therein, we can proceed to employ cosmological measurements to constrain the geometry of cosmological spacetime. Since we that the volume element chosen when specifying the area-metric matter theory also affects optical cosmological measurements, we can, in a first step, construct cosmological tests to constrain the degeneracy between the volume scaling degree of freedom~$\scalea\oft$ and the dilaton/axion field~$\scalec\oft$.
+Based on the efforts to recover cosmological observables in~\autoref{sec:cosmo_tests} and previous work referenced therein, we can proceed to employ cosmological measurements to constrain the geometry of cosmological spacetime. Since the volume element chosen when specifying the area-metric matter theory also affects optical cosmological measurements, we can, in a first step, construct cosmological tests to constrain the degeneracy between the volume scaling degree of freedom~$\scalea\oft$ and the dilaton/axion field~$\scalec\oft$.
 
 Finally, with a procedure in place to solve the area-metric gravitational closure equations under cosmological symmetries, it appears within reach to find the area-metric gravitational dynamics for other highly symmetric  settings, such as de Sitter or Schwarzschild spacetime.
 

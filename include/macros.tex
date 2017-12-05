@@ -6,10 +6,12 @@
 \RequirePackage{mathtools} % coloneqq
 
 % Colors
-\definecolor{coeffcolor}{RGB}{0, 50, 160}
-\definecolor{Ecolor}{RGB}{160, 50, 0}
-\definecolor{Mcolor}{RGB}{153, 153, 153}
+\definecolor{coeffcolor}{RGB}{20, 20, 180}
+\definecolor{Ecolor}{RGB}{200, 50, 20}
+\definecolor{Mcolor}{RGB}{154, 153, 152}
 \definecolor{sector}{RGB}{242, 171, 39}
+\definecolor{met}{RGB}{153, 153, 153}
+\definecolor{armet}{RGB}{153, 153, 153}
 
 % Links
 \newcommand{\namedeqref}[2]{\hyperref[#2]{#1}~\eqref{#2}} % reference equations by name
@@ -23,7 +25,7 @@
 \newcommand*{\nblink}{\begingroup\@makeother\#\@nblinkraw}
 \newcommand*{\@nblinkraw}[1]{
 \begin{itemize}
-	\item \href{https://github.com/knly/msc-thesis/blob/master/nb/#1}{/nb/{#1} on GitHub}
+	\item \href{https://github.com/knly/msc-thesis/blob/master/nb/#1}{knly/msc-thesis/nb/{#1} on GitHub}
 \end{itemize}
 \endgroup} 
 \makeatother
@@ -62,6 +64,12 @@
 \newenvironment{armetric}{%\colorbox{red}{\parbox{-3em}{\strut}}\;
 }{}
 \newenvironment{armetric*}{}{}
+\newcommand{\metind}{{\color{met}\met\colon\enspace}}
+\newcommand{\armetind}{{\color{armet}\armet\colon\enspace}}
+\newcommand{\metindc}{{\color{met}\met\colon\!}}
+\newcommand{\armetindc}{{\color{armet}\armet\colon\!}}
+\newenvironment{metcases}{\metindc\begin{cases}}{\end{cases}}
+\newenvironment{armetcases}{\armetindc\begin{cases}}{\end{cases}}
 
 % # Math symbols
 % Operations
@@ -179,15 +187,15 @@
 \newcommand{\armetbbar}{\overbar{\armetbar}}
 \newcommand{\armetbbbar}{\overbar{\armetbbar}}
 \newcommand{\geomdof}{\varphi}
-\newcommand{\metdof}{{\varphi_\met}}
-\newcommand{\armetdof}{{\varphi_\armet}}
+\newcommand{\metdof}{{\varphi}}
+\newcommand{\armetdof}{{\varphi}}
 \newcommand{\cosmodof}[2][]{{{y_{#1}}_{#2}}}
 \newcommand{\Func}[2]{{F^{#1}_{#2}}}
 \newcommand{\intertw}[2]{{I^{#1}}_{#2}}
 \newcommand{\invintertw}[2]{{I_{#1}}^{#2}}
 \newcommand{\canmom}{K}
-\newcommand{\canmommet}{{\canmom_\met}}
-\newcommand{\canmomarmet}{{\canmom_\armet}}
+\newcommand{\canmommet}{{\canmom}}
+\newcommand{\canmomarmet}{{\canmom}}
 \newcommand{\Coeff}{C}
 \newcommand{\pcoeff}{p}
 \newcommand{\Ecoeff}[2]{{E^{#1}}_{#2}}
