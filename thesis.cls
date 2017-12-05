@@ -37,11 +37,31 @@
 	}
 }
 
+% Math utility to load before font selection
+\usepackage{amsmath,amssymb}
+\usepackage{commath}
+\usepackage{mathtools}
+
 % Fonts
-\usepackage{fontspec,xunicode}
+%\usepackage{fontspec,xunicode}
+\usepackage{mathspec} % also loads fontspec
 \setmainfont{Palatino}
 \setsansfont{Optima}
+%\setmainfont{Nlf}
+%\setsansfont{Nlf}
 \setmonofont[Scale=MatchLowercase]{Menlo}
+%\setmathrm{Nlf}
+\newfontfamily\handwritten{Nlf}
+%\setmathsfont(Digits,Latin,Greek){Nlf}
+
+% Titles
+%\usepackage[uppercase]{titlesec}
+%\titleformat{\chapter}[hang]{\handwritten\Huge}{\thechapter}{10pt}{\uppercase}
+%\titleformat{\section}[hang]{\handwritten\LARGE}{\thesection}{10pt}{\uppercase}
+\usepackage{titlesec}
+%\renewcommand\thechapter{\Roman{chapter}}
+%\titleformat{\chapter}[display]{\normalfont\sffamily\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\paragraph}[block]{\center\bfseries}{\thetitle}{}{}
 
 % Units
 \usepackage[separate-uncertainty]{siunitx}
@@ -99,7 +119,7 @@
 
 % Bibliography
 \usepackage[style=numeric-comp,backend=biber,maxnames=10,maxcitenames=2]{biblatex}
-\nocite{*} % print all references, even those not used
+%\nocite{*} % print all references, even those not used
 
 % Appendix
 \usepackage[toc,page]{appendix}

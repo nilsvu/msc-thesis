@@ -1,62 +1,251 @@
-\usepackage{amsmath,amssymb}
-\usepackage{esdiff} % derivatives
-\usepackage{commath} % math macros
-\usepackage{bbm} % blackboard style symbols
-\usepackage{xfrac} % sfrac
-\usepackage{mathtools} % coloneqq
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{esdiff} % derivatives
+\RequirePackage{commath} % math macros
+\RequirePackage{bbm} % blackboard style symbols
+\RequirePackage{xfrac} % sfrac
+\RequirePackage{mathtools} % coloneqq
+
+% Colors
+\definecolor{coeffcolor}{RGB}{0, 50, 160}
+\definecolor{Ecolor}{RGB}{160, 50, 0}
+\definecolor{Mcolor}{RGB}{153, 153, 153}
+\definecolor{sector}{RGB}{242, 171, 39}
 
 % Links
-\newcommand{\namedeqref}[2]{\hyperref[#2]{#1}~\eqref{#2}} % macro to reference equations by name
-\renewcommand{\appref}[1]{\hyperref[#1]{Appendix~\ref{#1}}} % macro to print appendix references
+\newcommand{\namedeqref}[2]{\hyperref[#2]{#1}~\eqref{#2}} % reference equations by name
+\renewcommand{\appref}[1]{\hyperref[#1]{Appendix~\ref{#1}}} % print appendix references
+\newcommand{\nbref}[1]{\hyperref[#1]{\ref{#1}}} % print supplementary Mathematica notebook references
+\newcommand{\namednbref}[2]{\hyperref[#2]{{#1}~\ref{#2}}}
+\newcommand{\CE}[2]{C${\hspace{1pt}{#1}_{#2}}$}
+\newcommand{\CEref}[2]{\hyperref[eq:CE_#1]{(\CE{#1}{#2}})}
+
+\makeatletter
+\newcommand*{\nblink}{\begingroup\@makeother\#\@nblinkraw}
+\newcommand*{\@nblinkraw}[1]{
+\begin{itemize}
+	\item \href{https://github.com/knly/msc-thesis/blob/master/nb/#1}{/nb/{#1} on GitHub}
+\end{itemize}
+\endgroup} 
+\makeatother
 
 % Equations
 \newcommand{\eqpunct}[1]{\mathpunct{#1}} % embed punctuation in equations
 \newcommand{\eqname}[2]{\label{#2} \\[-1em] \tag*{\llap{\emph{#1}}}} % print a title for the equation
 
-% Images
-\usepackage{pgf}
-\newcommand{\plt}[3]{
-	\begin{figure}[h]
-		\begin{center}
-			\input{plots/#1.pgf}
-		\end{center}
-		\caption[#2]{\textbf{#2} \quad #3}
-		\label{fig:#1}
-	\end{figure}
-}
+% Figures
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+% workaround to use colons in tikz nodes...
+\makeatletter
+\protected\def\tikz@nonactivecolon{\ifmmode\mathrel{\mathop\ordinarycolon}\else:\fi} 
+\makeatother
 
+\newcommand{\figcaption}[2]{\caption[#1]{\textbf{#1} \quad #2}}
+%\usepackage{pgf}
+%\newcommand{\plt}[3]{
+%	\begin{figure}[h]
+%		\begin{center}
+%			\input{plots/#1.pgf}
+%		\end{center}
+%		\caption[#2]{\textbf{#2} \quad #3}
+%		\label{fig:#1}
+%	\end{figure}
+%}
 
+% Environments
+\newcommand{\statement}[1]{\stepcounter{statements}\addtheoremline{statements}{#1}\paragraph{#1}}%\addcontentsline{statement}{Statement}{#1}
+\newcommand{\Csector}[1]{\paragraph{#1}}
+\newenvironment{insight}[1]{\subsection{#1}}{}
+\newenvironment{metric}{%\color{red} (\met)\vert\;\color{black}
+}{}
+\newenvironment{metric*}{}{}
+\newenvironment{armetric}{%\colorbox{red}{\parbox{-3em}{\strut}}\;
+}{}
+\newenvironment{armetric*}{}{}
 
 % # Math symbols
+% Operations
+\newcommand{\covd}{\nabla}
+\newcommand{\functderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\defeq}{\coloneqq}
+\newcommand{\eqdef}{\eqqcolon}
+\newcommand{\intd}[1]{\int\!\dif{#1}\,}
+\newcommand{\dt}[1]{\dot{#1}}
+\newcommand{\ddt}[1]{\ddot{#1}}
+\newcommand{\lndt}[2][]{\frac{\dot{#2}^{#1}}{{#2}^{#1}}}
+\newcommand{\order}[1]{\mathcal{O}(#1)}
+\newcommand{\complconj}[1]{{{#1}^{*}}}
+\newcommand{\eul}{\mathrm{e}}
+\newcommand{\iu}{{i\mkern1mu}}
+\newcommand{\Cdiff}[3]{\Coeff_{#1:{#2}^{#3}}}
+\newcommand{\comm}[2]{[{#1},{#2}]}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\avg}[1]{\left<{#1}\right>}
+\newcommand{\domain}{D}
+\newcommand{\areanorm}{n}
 % Coordinates
+\newcommand{\coordX}{X}
 \newcommand{\coordx}{x}
+\newcommand{\coordy}{y}
+\newcommand{\coordz}{z}
+\newcommand{\coordw}{w}
 \newcommand{\coordr}{r}
+\newcommand{\func}{f}
 \newcommand{\coordtheta}{\theta}
 \newcommand{\coordphi}{\phi}
+\newcommand{\solangl}{\Omega}
+\newcommand{\of}[1]{(#1)}
+\newcommand{\ofx}{\of{\vect{\coordx}}}
+\newcommand{\oft}{\of{t}}
+\newcommand{\ofc}{\of{\scalec}}
+\newcommand{\area}{A}
 \newcommand{\costh}{\cos{\coordtheta}}
 \newcommand{\sinth}{\sin{\coordtheta}}
 \newcommand{\cosph}{\cos{\coordphi}}
 \newcommand{\sinph}{\sin{\coordphi}}
+\newcommand{\costhsq}{\cos^2{\coordtheta}}
+\newcommand{\sinthsq}{\sin^2{\coordtheta}}
+\newcommand{\cosphsq}{\cos^2{\coordphi}}
+\newcommand{\sinphsq}{\sin^2{\coordphi}}
+\newcommand{\spatvol}{\vol_\spatcurv}
 % Common symbols
+\newcommand{\Lagr}{\mathcal{L}}
+\newcommand{\act}{S}
+\newcommand{\Lagrmatter}{\Lagr_\mathrm{matter}}
+\newcommand{\actmatter}{\act_\mathrm{matter}}
+\newcommand{\actgeom}{\act_\mathrm{geom}}
 \newcommand{\Const}{C}
+\newcommand{\cont}{\ldots}
+\newcommand{\gravconst}{\kappa}
+\newcommand{\hypersurf}{\Sigma}
 % Tensor calculus
 \newcommand{\levciv}{\epsilon}
+\newcommand{\krond}{\delta}
 \newcommand{\Liederiv}[2]{\mathcal{L}_{#1} #2}
+\newcommand{\antisyml}{[}
+\newcommand{\antisymr}{]}
+\newcommand{\syml}{(}
+\newcommand{\symr}{)}
+\newcommand{\symsep}{|}
+\newcommand{\diag}[1]{\mathrm{diag}(#1)}
+\newcommand{\Petrov}[1]{\mathrm{Petrov}[#1]}
+\newcommand{\indsep}{\,}
 % Geometry
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\vectspat}[1]{\vec{#1}}
 \newcommand{\Kvec}{K}
+\newcommand{\Pvec}{P}
+\newcommand{\Lvec}{L}
+\newcommand{\Dvec}{D}
 \newcommand{\basisvect}{\vect{e}}
 \newcommand{\spatcurv}{k} % FLRW spatial curvature parameter
 \newcommand{\curvfact}{1-\spatcurv \coordr{}^2}
-\newcommand{\scalea}{a(t)}
-\newcommand{\scalec}{c(t)}
-\newcommand{\Nlapse}{N(t)}
+\newcommand{\scalea}{a}
+\newcommand{\scalec}{c}
+\newcommand{\lnc}{\gamma}
+\newcommand{\axfield}{\psi}
+\newcommand{\dilfield}{\phi}
+\newcommand{\effscale}{e}
+\newcommand{\Nlapse}{N}
+\newcommand{\Nshift}{N}
+\newcommand{\Hfunc}{H}
+\newcommand{\Hnow}{\Hfunc_0}
+\newcommand{\ccf}[2]{{\Gamma^{#1}_{#2}}}
+% Matter
+\newcommand{\mass}{m}
+\newcommand{\wavefunc}{\psi}
+\newcommand{\pot}{V}
+\newcommand{\matterfields}{\Phi} % matter fields in the lagrangian
+\newcommand{\scalfield}{\phi}
+\newcommand{\emcurr}{J}
+\newcommand{\empot}{A}
+\newcommand{\fstr}{F}
+\newcommand{\fstrdual}{\tilde{F}}
+\newcommand{\eosp}{w} % equation of state parameter
+\newcommand{\EMt}{T}
+\newcommand{\GMcoeff}[3]{{{C^{#1}}^{#2}}_{#3}}
+\newcommand{\dens}{\rho} % density
+\newcommand{\press}{p} % pressure
+\newcommand{\q}{q} % non-density-pressure
+\newcommand{\internen}{U} % inner energy
+\newcommand{\work}{W} % work energy
+\newcommand{\EMtrace}{T}
+\newcommand{\EMantisym}{U}
+\newcommand{\Ccoeff}{C}
 % Constructive gravity
+\newcommand{\overbar}[1]{{\bar{#1}}}
+\newcommand{\metbar}{\overbar{\met}}
+\newcommand{\armetbar}{\overbar{\armet}}
+\newcommand{\armetbbar}{\overbar{\armetbar}}
+\newcommand{\armetbbbar}{\overbar{\armetbbar}}
+\newcommand{\geomdof}{\varphi}
+\newcommand{\metdof}{{\varphi_\met}}
+\newcommand{\armetdof}{{\varphi_\armet}}
+\newcommand{\cosmodof}[2][]{{{y_{#1}}_{#2}}}
+\newcommand{\Func}[2]{{F^{#1}_{#2}}}
+\newcommand{\intertw}[2]{{I^{#1}}_{#2}}
+\newcommand{\invintertw}[2]{{I_{#1}}^{#2}}
+\newcommand{\canmom}{K}
+\newcommand{\canmommet}{{\canmom_\met}}
+\newcommand{\canmomarmet}{{\canmom_\armet}}
+\newcommand{\Coeff}{C}
+\newcommand{\pcoeff}{p}
+\newcommand{\Ecoeff}[2]{{E^{#1}}_{#2}}
+\newcommand{\Fcoeff}[3]{{{F^{#1}}_{#3}}^{#2}}
+\newcommand{\Mcoeff}[2]{M^{#1 #2}}
+\newcommand{\Nind}{n}
+\newcommand{\nind}{m}
+
+\newcommand{\prpol}{P}
 \newcommand{\Pdual}{P^\#}
-\newcommand{\geom}{G} % general geometry
+\newcommand{\gengeom}{G} % general geometry
 \newcommand{\met}{g} % metric
-\newcommand{\spatmet}{\gamma_{\spatcurv}} % metric
+\newcommand{\minkmet}{\eta} % Minkowski metric
+\newcommand{\sqrtmet}{\sqrt{-\met\,}} % metric
+\newcommand{\spatmet}{{\gamma_{\spatcurv}}} % metric
 \newcommand{\armet}{G} % area metric
-\newcommand{\multindex}{A}
+\newcommand{\multind}{\mathcal{A}}
+\newcommand{\gbar}{\bar{\met}}
+\newcommand{\gbbar}{\bar{\bar{\met}}}
+\newcommand{\gbbbar}{\bar{\bar{\bar{\met}}}}
+\newcommand{\sourcet}{S}
+\newcommand{\volel}{\omega}
+\newcommand{\vol}{V}
+% Trajectories
+\newcommand{\momcov}{k}
+\newcommand{\vel}{u}
+\newcommand{\prpt}{\tau}
+\newcommand{\affpar}{\lambda}
+% Radiation
+\newcommand{\shortwave}{\epsilon}
+\newcommand{\eik}{S}
+\newcommand{\obs}{\mathrm{obs}}
+\newcommand{\src}{\mathrm{em}}
+\newcommand{\ampl}{A}
+\newcommand{\projv}{P}
+\newcommand{\polcov}{V}
+\newcommand{\Nflux}{N}
+\newcommand{\freq}{\omega}
+\newcommand{\reds}{z}
+\newcommand{\intrfreq}{\freq_\momcov}
+% distance measures
+\newcommand{\dcom}{{d_\mathrm{com}}}
+\newcommand{\flux}{F}
+\newcommand{\lum}{L}
+\newcommand{\dlum}{{d_\mathrm{lum}}}
+\newcommand{\dlumcor}{{d'_\mathrm{lum}}}
+\newcommand{\dang}{{d_\mathrm{ang}}}
+\newcommand{\Dflux}{\Delta}
+% RDSs
+\newcommand{\pecvel}{v}
+\newcommand{\pecvellos}{v_{\vect{\momcov}}}
+\newcommand{\redss}{s}
+\newcommand{\reals}{r}
+\newcommand{\denscon}{\delta}
+\newcommand{\fours}{k}
+\newcommand{\powspec}{P}
+\newcommand{\corrf}{\xi}
+
 
 % Abbreviations
 \newcommand{\LCDM}{$\cosmconst$CDM}
@@ -69,10 +258,9 @@
 \newcommand{\Ttens}{T} % Energy-momentum tensor
 \newcommand{\metrdet}[1]{\abs{#1}} % metric determinant
 \newcommand{\lagrdens}{\mathcal{L}} % Lagrangian
-\newcommand{\matterfields}{\Phi} % matter fields in the lagrangian
 \newcommand{\lagrdensmatter}{\lagrdens_\textnormal{matter}(g,\matterfields)} % matter Lagrangian
-\newcommand{\Newtconst}{\mathrm{G}_\textnormal{\tiny{N}}} % Newtonian constant
-\newcommand{\cosmconst}{\Lambda} % determinant of g
+\newcommand{\newtconst}{\mathrm{G}_\textnormal{\tiny{N}}} % Newtonian constant
+\newcommand{\cosmconst}{\Lambda} % cosmological constant
 \newcommand{\hcross}{h_\times} % cross-polarized tensor perturbation
 \newcommand{\hplus}{h_+} % plus-polarized tensor perturbation
 \newcommand{\conft}{\eta} % conformal time
@@ -80,10 +268,8 @@
 \newcommand{\Hcosm}{\mathrm{H}} % Hubble function
 \newcommand{\Hconf}{\mathcal{H}} % conformal Hubble function
 %\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
-\newcommand{\eosp}{w} % equation of state parameter
 \newcommand{\nexp}{n(\eosp)} % 3(1+w)
 \newcommand{\nexpconft}{\tilde{n}(\eosp)} % 2/(1+3w)
-\newcommand{\dens}{\rho} % density
 \newcommand{\denscrit}{\rho_\textnormal{crit}} % density
 \newcommand{\Dens}{\Omega} % normalized density
 \newcommand{\symbdust}{\mathrm{m}} % normalized density
@@ -106,19 +292,13 @@
 \newcommand{\besselY}{Y}
 
 % Derivatives
-\newcommand{\dt}[1]{\diff{#1}{t}}
-\newcommand{\ddt}[1]{\diff[2]{#1}{t}}
 \newcommand{\dconf}[1]{\dot{#1}}
 \newcommand{\ddconf}[1]{\ddot{#1}}
 \newcommand{\defold}[1]{#1^\prime}
 \newcommand{\ddefold}[1]{#1^{\prime\prime}}
 
 % Operators and other stuff
-\newcommand{\vect}[1]{\boldsymbol{#1}}
-\newcommand{\defeq}{\coloneqq}
 \newcommand{\idmat}{\mathbbm{1}}
-\newcommand{\covd}{\nabla}
-\newcommand{\eul}{\mathrm{e}}
 \newcommand{\dxdx}[2]{\dif{x^{#1}}\otimes\dif{x^{#2}}}
 
 % Units

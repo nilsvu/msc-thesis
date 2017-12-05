@@ -1,2 +1,67 @@
 \chapter{Mathematical Appendix}
 
+\section{Notation}
+
+Latin indices~$a$ through~$f$ and~$m$ through~$s$ run from~$0$ to~$3$ and usually denote spacetime tensor components. Greek indices~$\alpha$ through~$\sigma$ run from~$1$ to~$3$, usually referring to the spatial tensor components in a particular choice of coordinates. Uppercase latin indices~$A$ through~$Z$ run from~$1$ to~$6$ or$1$ to~$17$ in metric or area-metric geometry, respectively. We employ the Einstein sum convention to sum over repeated indices.
+
+To abbreviate symmetrized or antisymmetrized expressions we use the notation
+\begin{equation}
+	A_{\syml ab\symr}=\frac{1}{2}\left(A_{ab}+A_{ba}\right) \quad A_{\antisyml ab\antisymr}=\frac{1}{2}\left(A_{ab}-A_{ba}\right)
+\end{equation}
+and define the commutator
+\begin{equation}
+	\comm{A}{B}=AB-BA
+	\eqpunct{.}
+\end{equation}
+
+Partial derivatives by coordinates we either write as~$\partial_aA$ or~$A_{,a}$. In~\autoref{sec:constr_cosmo} we employ another notation to denote derivatives by the variables of the closure equations as
+\begin{equation}
+	\Cdiff{}{A}{}\equiv\diffp{\Coeff}{{{\geomdof^A}_{}}}\eqpunct{,} \quad \Cdiff{}{A}{\mu}\equiv\diffp{\Coeff}{{{\geomdof^A}_{,\mu}}}\eqpunct{,} \quad \cont
+\end{equation}
+
+
+\section{A boundary term of Maxwell electrodynamics}\label{sec:gled_boundary}
+
+To show that the action~\eqref{eq:maxwell_action_mod} is dynamically equivalent to \namedeqref{standard Maxwell electrodynamics}{eq:maxwell_action}, it remains to be shown that the term
+\begin{equation}
+	\frac{1}{4}\levciv^{abcd}\fstr_{ab}\fstr_{cd}
+\end{equation}
+constitutes a total derivative. Formulated in terms of the gauge field~$\empot_b$, the expression reduces to
+\begin{equation}
+	\levciv^{abcd}\partial_a\empot_b\partial_c\empot_d
+\end{equation}
+where we already absorbed the antisymmetry of~$\fstr_{ab}=2\partial_{\antisyml a}\empot_{b\antisymr}$ into a permutation of the totally antisymmetric Levi-Civita symbol~$\levciv^{abcd}$. Then, we may rewrite the expression as a total derivative and its correction as
+\begin{equation}
+	\underbrace{\partial_a\left(\levciv^{abcd}\empot_b\partial_c\empot_d\right)}_{=\partial_a\emcurr^a}
+	-\underbrace{\levciv^{abcd}\empot_b\partial_a\partial_c\empot_d}_{=0\;\text{by symmetry}}
+	\eqpunct{.}
+\end{equation}
+However, the correction vanishes by the contraction of the commuting partial derivatives with the antisymmetric Levi-Civita symbol. We are left with a total derivate of a Chern-Simons current density~$\emcurr^a$ that does not contribute to the equations of motion.
+
+%\section{Derivation of the metric Friedmann equations}
+%
+%The FLRW symmetry-reduced metric construction equations have the solution
+%\begin{align}
+%\act_\gengeom&=\intd{^4x}\Nlapse\left[\Ccoeff+\Ccoeff_A k^A+\Ccoeff_{AB}k^A k^B+\dots\right] \\
+%&=\intd{^4x}\Nlapse\scalea^3\sqrt{\spatmet}\Gamma\left[6\frac{\spatcurv}{\scalea^2}-6\frac{\dt{\scalea}^2}{\scalea^2}\frac{1}{\Nlapse^2}-2\cosmconst\right] \quad \text{with constants $\Gamma$ and $\cosmconst$} \\
+%&=6\Gamma\spatvol\intd{t}\left[\spatcurv\Nlapse\scalea-\frac{1}{\Nlapse}\dt{\scalea}^2\scalea-\frac{\cosmconst}{3}\Nlapse\scalea^3\right] \quad \text{with $\spatvol\defeq\intd{^3x}\sqrt{\spatmet}$ comoving volume}
+%\end{align}
+%Variation of the action by the remaining geometric degrees of freedom gives rise to the Friedmann equations.
+%
+%For metric geometry
+%\begin{align}
+%0=\functderiv{\act}{\Nlapse}&=6\Gamma\spatvol\intd{t}\left[\spatcurv\scalea+\dt{\scalea}^2\scalea\frac{1}{\Nlapse^2}-\frac{\cosmconst}{3}\scalea^3\right]+\functderiv{\actmatter}{\Nlapse} \\
+%\text{where} \quad \functderiv{\actmatter}{\Nlapse}&=\intd{^4x}\functderiv{\Lagrmatter}{\met^{ab}}\functderiv{\met^{ab}}{\Nlapse} \\
+%&=-\intd{^4x}\frac{\sqrt{-\met}}{\Nlapse^3}\sourcet_{tt}=-\spatvol\intd{t}\scalea^3\dens \\
+%\implies 0&=6\Gamma\left[\frac{\spatcurv}{\scalea^2}+\frac{\dt{\scalea}^2}{\scalea^2}-\frac{\cosmconst}{3}\right]-\dens \\
+%\implies \frac{\dt{\scalea}^2}{\scalea^2}&=\frac{1}{6\Gamma}\dens-\frac{\spatcurv}{\scalea^2}+\frac{\cosmconst}{3} %\label{eq:friedmann}
+%\end{align}
+%and
+%\begin{align}
+%0=\functderiv{\act}{\scalea}&=6\Gamma\spatvol\intd{t}\left[\spatcurv\Nlapse-\frac{1}{\Nlapse}\dt{\scalea}^2-\frac{2}{\Nlapse}\dt{\scalea}\scalea\functderiv{\dt{\scalea}}{\scalea}-\cosmconst\Nlapse\scalea^2\right]+\functderiv{\actmatter}{\scalea} \\
+%\text{where} \quad \functderiv{\actmatter}{\scalea}&=-\intd{^4x}\frac{\sqrt{-\met}}{2}\sourcet_{ab}\functderiv{\met^{ab}}{\scalea}\\
+%&=\intd{^4x}\frac{\sqrt{-\met}}{\scalea^3}\sourcet_{\mu\nu}\spatmet^{\mu\nu}=3\spatvol\intd{t}\Nlapse\scalea^2\press \\
+%\implies 0&=6\Gamma\left[\frac{\spatcurv}{\scalea^2}+\frac{\dt{\scalea}^2}{\scalea^2}+2\frac{\ddt{\scalea}}{\scalea}-\cosmconst\right]+3\press=\dens+12\Gamma\left[\frac{\ddt{\scalea}}{\scalea}-\frac{\cosmconst}{3}\right]+3\press \\
+%\implies \frac{\ddt{\scalea}}{\scalea}&=-\frac{1}{12\Gamma}\left(\dens+3\press\right)+\frac{\cosmconst}{3} %\label{eq:acceleration}
+%\end{align}
+%with energy-momentum conservation holding on-shell.

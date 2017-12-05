@@ -1,0 +1,98 @@
+\input{figures/tikzstyles}
+
+\begin{tikzpicture}[y=-3cm, x=4cm, auto, >=]
+
+\node (labelorigin) at (-0.28,-0.55) {};
+\node (xlabel) [anchor=west,xshift=1cm] at (labelorigin) {\scriptsize\uppercase{derivative order}};
+\node (ylabel) [anchor=west,yshift=-1cm,rotate=-90] at (labelorigin) {\scriptsize\uppercase{coefficient order}};
+\draw [-{Stealth}] (xlabel.east) ++(1mm,0) -- ++(1cm,0);
+\draw [-{Stealth}] (ylabel.east) ++(0,-1mm) -- ++(0,-1cm);
+
+\draw (3+\edgeext,-0.55) node (Mdlegend) [anchor=east] {\textcolor{Mcolor}{${{\Mcoeff{A}{\mu}}_{:B}}$}};
+\draw [Mdcoeff] (Mdlegend.west) -- ++(-0.5cm,0);
+
+\node (C) at (0, 0) [coeff] {$\Coeff_{}$};
+\node (CdE) at (1, 0) [coeff] {$\Cdiff{}{A}{}$};
+\node (CdEa) at (2, 0) [coeff] {$\Cdiff{}{A}{\mu}$};
+\node (CdEab) at (3, 0) [coeff] {$\Cdiff{}{A}{\mu\nu}$};
+\node (CA) at (0, 1) [coeff] {$\Coeff_{A}$};
+\node (CAdE) at (1, 1) [coeff] {$\Cdiff{A}{B}{}$};
+\node (CAdEa) at (2, 1) [coeff] {$\Cdiff{A}{B}{\mu}$};
+\node (CAdEab) at (3, 1) [coeff] {$\Cdiff{A}{B}{\mu\nu}$};
+\node (CAB) at (0, 2) [coeff] {$\Coeff_{AB}$};
+\node (CABdE) at (1, 2) [coeff] {$\Cdiff{AB}{C}{}$};
+\node (CABdEa) at (2, 2) [coeff] {$\Cdiff{AB}{C}{\mu}$};
+\node (CABdEab) at (3, 2) [coeff] {$\Cdiff{AB}{C}{\mu\nu}$};
+\node (CABC) at (0, 3) [coeff] {$\Coeff_{ABC}$};
+\node (CABCdE) at (1, 3) [coeff] {$\Cdiff{ABC}{D}{}$};
+\node (CABCdEa) at (2, 3) [coeff] {$\Cdiff{ABC}{D}{\mu}$};
+\node (CABCdEab) at (3, 3) [coeff] {$\Cdiff{ABC}{D}{\mu\nu}$};
+\node (CABCD) at (0, 4) [coeff] {$\Coeff_{ABCD}$};
+\node (CABCDdE) at (1, 4) [coeff] {$\Cdiff{ABCD}{E}{}$};
+\node (CABCDdEa) at (2, 4) [coeff] {$\Cdiff{ABCD}{E}{\mu}$};
+\node (CABCDdEab) at (3, 4) [coeff] {$\Cdiff{ABCD}{E}{\mu\nu}$};
+
+% C1
+\path [always] (C.east) edge [connindboth] node {\CE{1}{}} (CdE.west);
+
+% C2
+\path [always] (CA.east) edge [connindboth] node {\CE{2}{}} (CAdE.west);
+
+% C3
+\path [always,connindboth] (CAB.north) -- (0,2-\pathoffs) -- ++(2.3,0) node[midway]{\CE{3}{}} -- (CdEab.south);
+
+% C4
+\path [always,connindboth] (CdEa.250) -- (2-\selfoffsouter,\pathoffs) -- (2+\selfoffsouter,\pathoffs) node[midway,anchor=north]{\CE{4}{}} -- (CdEa.290);
+\path [Mdcoeff,connindend] (2-\selfoffsouter,\pathoffs) node[connind]{} -- (1.7,1-\pathoffs) -- (0,1-\pathoffs) -- (CA.north);
+
+% C6
+\path [always,connindboth] (CAdEa.250) -- (2-\selfoffsouter,1+\pathoffs) -- (2+\selfoffsouter,1+\pathoffs) node[midway,anchor=north]{\CE{6}{}} -- (CAdEa.290);
+\path [Mdcoeff,connindend] (2-\selfoffsouter,1+\pathoffs) node[connind]{} -- (1.7,2-\pathoffs+\lineoffs) -- (\lineoffs,2-\pathoffs+\lineoffs) -- (CAB.68);
+
+% C8
+\path [always,connindboth] (CdEa.10) -- (2+\pathoffs,-\selfoffsouter) -- (2+\pathoffs,\selfoffsouter) node [midway,anchor=west] {\CE{8}{2}} -- (CdEa.350);
+\path [always,connindboth] (CdEab.10) -- (3+\pathoffs,-\selfoffsouter) -- (3+\pathoffs,\selfoffsouter) node [midway,anchor=west] {\CE{8}{3}} -- (CdEab.350);
+
+% C9, C18
+\path [always,connindboth] (CAdEa.10) -- (2+\pathoffs,1-\selfoffsouter) -- (2+\pathoffs,1+\selfoffsouter) node [midway,anchor=west] {\CE{9}{2}} -- (CAdEa.350);
+\path [always,connindboth] (CAdEab.10) -- (3+\pathoffs,1-\selfoffsouter) -- (3+\pathoffs,1+\selfoffsouter) node [midway,anchor=west,align=left] {\CE{9}{3} \\ \CE{18}{2}} -- (CAdEab.350);
+
+% C10
+\path [always,connindboth] (CAB.east) -- (CABdE.west) node [midway,anchor=south] {\CE{10}{2}};
+\path [always,connindboth] (CABC.east) -- (CABCdE.west) node [midway,anchor=south] {\CE{10}{3}};
+\path [always,connindboth] (CABCD.east) -- (CABCDdE.west) node [midway,anchor=south] {\CE{10}{4}};
+
+% C11
+\path [always,connindboth] (CABdEa.10) -- (2+\pathoffs,2-\selfoffsouter) -- (2+\pathoffs,2+\selfoffsouter) node [midway,anchor=west] {\CE{11}{2}} -- (CABdEa.350);
+\path [always,connindboth] (CABCdEa.10) -- (2+\pathoffs+0.01,3-\selfoffsouter) -- (2+\pathoffs+0.01,3+\selfoffsouter) node [midway,anchor=west] {\CE{11}{3}} -- (CABCdEa.350);
+\path [always,connindboth] (CABCDdEa.10) -- (2+\pathoffs+0.03,4-\selfoffsouter) -- (2+\pathoffs+0.03,4+\selfoffsouter) node [midway,anchor=west] {\CE{11}{4}} -- (CABCDdEa.350);
+
+% C12, C15
+\path [always,connindboth] (CABdEab.10) -- (3+\pathoffs,2-\selfoffsouter) -- (3+\pathoffs,2+\selfoffsouter) node [midway,anchor=west,align=left] {\CE{12}{2} \\ \CE{15}{2}} -- (CABdEab.350);
+\path [always,connindboth] (CABCdEab.10) -- (3+\pathoffs+0.03,3-\selfoffsouter) -- (3+\pathoffs+0.03,3+\selfoffsouter) node [midway,anchor=west,align=left] {\CE{12}{3} \\ \CE{15}{3}} -- (CABCdEab.350);
+\path [always,connindboth] (CABCDdEab.10) -- (3+\pathoffs+0.05,4-\selfoffsouter) -- (3+\pathoffs+0.05,4+\selfoffsouter) node [midway,anchor=west,align=left] {\CE{12}{4} \\ \CE{15}{4}} -- (CABCDdEab.350);
+
+% C16
+\path [always,connindboth] (CABC.110) -- (-\selfoffsouter,3-\pathoffs) -- (\selfoffsouter,3-\pathoffs) node [midway,anchor=south] {\CE{16}{2}} -- (CABC.70);
+\path [always,connindboth] (CABCD.north) -- (0,4-\pathoffs) -- ++(2.3,0) node[midway,anchor=south]{\CE{16}{3}} -- (CABdEab.south);
+\path [always,connindstart] (CABCdEab.south) -- (2.46,4+\edgeext) node[pos=0.2,anchor=west]{\CE{16}{4}};
+\path [always,connindstart] (CABCDdEab.south) -- (2.88,4+\edgeext) node[pos=0.7,anchor=west]{\CE{16}{5}};
+	
+% C17
+\path [always,connindboth] (CABdEa.250) -- (2-\selfoffsouter,2+\pathoffs) -- (2+\selfoffsouter,2+\pathoffs) node[midway,anchor=north]{\CE{17}{2}} -- (CABdEa.290);
+\path [Mdcoeff,connindend] (2-\selfoffsouter,2+\pathoffs) node[connind]{} -- (1.7,3-\pathoffs) -- (\selfoffsouter+\lineoffs,3-\pathoffs) -- (CABC.50);
+\path [always,connindboth] (CABCdEa.250) -- (2-\selfoffsouter,3+\pathoffs) -- (2+\selfoffsouter,3+\pathoffs) node[midway,anchor=north]{\CE{17}{3}} -- (CABCdEa.290);
+\path [Mdcoeff,connindend] (2-\selfoffsouter,3+\pathoffs) node[connind]{} -- (1.7,4-\pathoffs+\lineoffs) -- (\lineoffs,4-\pathoffs+\lineoffs) -- (CABCD.68);
+\path [always,connindboth] (CABCDdEa.250) -- (2-\selfoffsouter,4+\pathoffs) -- (2+\selfoffsouter,4+\pathoffs) node[midway,anchor=north]{\CE{17}{4}} -- (CABCDdEa.290);
+\path [Mdcoeff] (2-\selfoffsouter,4+\pathoffs) node[connind]{} -- (1.85,4+\edgeext);
+
+
+% sectors
+\path [sector] (-0.15,0.45) -- (1,0.45) node[sectorlabel]{$\Coeff$-sector}
+	-- (1.5,0.1) -- (1.5,-0.25);
+\path [sector] (-0.15,1.45) -- (1,1.45) node[sectorlabel]{$\Coeff_A$-sector}
+	-- (2.65,0.3) -- (2.65,-0.25);
+\path [sector] (-0.15,2.45) -- (1,2.45) node[sectorlabel]{$\Coeff_{AB}$-sector};
+\path [sector] (-0.15,3.45) -- (1,3.45) node[sectorlabel]{$\Coeff_{ABC}$-sector};
+
+\end{tikzpicture}

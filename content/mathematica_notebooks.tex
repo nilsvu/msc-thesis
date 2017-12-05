@@ -1,0 +1,19 @@
+\chapter{Mathematica notebooks}
+
+\section{Derivation of the cosmological metric and area-metric from Killing vector fields}\label{nb:cosmo_geom}
+
+\nblink{1\_cosmological\_geometry.nb}
+
+Starting off with the set of Killing vector fields~\eqref{eq:killing_vecfields}, in this Mathematica notebook we explicitly solve the metric and area-metric Killing conditions~\eqref{eq:metric_killing_cond} and~\eqref{eq:armet_killing_cond}. We employ the parametrization conditions detailed in \autoref{sec:symm_geom} to arrive at the \FLRW{} metric~\eqref{eq:flrw_metric} and the cosmological area-metric~\eqref{eq:cosmo_armet}, respectively.
+
+\section{Derivation of metric and area-metric ideal fluids}\label{nb:cosmo_em}
+
+\nblink{2\_cosmological\_matter.nb}
+
+In a procedure similar to the derivation of the cosmological geometry above, we explicitly solve the metric and area-metric Killing conditions for the gravitational source tensor~\eqref{eq:sourcet}. We compute the associated Gotay-Marsden energy-momentum tensors and the corresponding conservation laws to implement the parametrization conditions detailed in~\autoref{sec:fluids}. The result of these computations are the metric and area-metric ideal fluid source tensors~\eqref{eq:sourcet_fluid_met} and~\eqref{eq:sourcet_fluid_armet}, respectively.
+
+\section{Solution of the gravitational closure equations for metric and area-metric cosmology}\label{nb:constr_cosmo}
+
+\nblink{3\_constructive\_cosmology.nb}
+
+This Mathematica notebook solves the closure equations for metric and area-metric cosmology. We first compute the symmetry-reduced geometric degrees of freedom and the kinematical coefficients for both geometries. We then utilize this computational tool to explicitly evaluate the closure equations for these kinematical coefficients and to solve the resulting large set of equations for the dynamical coefficients and their derivatives. We conduct the derivation for~$\spatcurv=0$ for both geometries by stepping through the sectors detailed in \autoref{sec:solve_closeqns}, but also solve the metric closure equations for arbitrary~$\spatcurv$. As part of the derivation we perform a change of variables and integrate the partial differential equations, which gives rise to the constants and functions detailed in \autoref{sec:solve_closeqns}. We finally collect the results to arrive at the actions~\eqref{eq:cosmo_met_action_raw} and~\eqref{eq:constr_action_armet} for the dynamics of metric and area-metric cosmology, respectively.

@@ -1,5 +1,6 @@
 # compiled PDFs
 /*.pdf
+/Korrekturen
 
 # LaTeX
 *.aux

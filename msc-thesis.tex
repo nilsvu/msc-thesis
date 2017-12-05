@@ -1,6 +1,6 @@
 \documentclass[
-    draft,
-	12pt, % font size
+    %draft,
+	11pt, % font size
 	parskip=half, % space between paragraphs instead of indentation
 	digital, % digital or print
 	oneside, % oneside / twoside
@@ -8,21 +8,37 @@
 ]{thesis}
 
 \geometry{
-	width=155mm,
+	width=150mm,
 %	bindingoffset=5mm,
 }
 \fancyhfoffset{0pt}
 
-\usepackage{todonotes}
+\usepackage[disable]{todonotes}
+%\usepackage{todonotes}
+\usepackage{comment}
 
-\title{Gravitational closure of maximally symmetric bi-refringent spacetime}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+
+\usepackage{epigraph}
+
+\usepackage[hyperref]{ntheorem}
+\newtheorem{statements}{Statements}[chapter]
+
+%\makeatletter
+%\newcommand\l@statement[2]{{#1}\hfill{#2}\\}
+%\newcommand\listofstatements{%
+%  \chapter*{List of Statements}\@starttoc{statement}}
+%\makeatother
+
+
+\title{Cosmological closure of metric and area-metric ideal fluids}
 \author{Nils Leif Fischer}
 \date{December 5, 2017}
 
 \input{include/macros}
 
-\addbibresource{msc-thesis.bib}
-
+\addbibresource{bib/Masterarbeit.bib}
 
 \begin{document}
 
@@ -32,9 +48,14 @@
 
 \input{content/titlepage}
 \input{content/abstract}
+\input{content/quote}
 
+\setcounter{tocdepth}{1}
 \tableofcontents
 \listoffigures
+%\listofstatements
+\chapter*{List of Statements}
+\listtheorems{statements}
 
 % Main matter
 \cleardoublepage\pagenumbering{arabic}
@@ -48,7 +69,9 @@
 \input{content/acknowledgments}
 
 \begin{appendices}
+\input{content/mathematica_notebooks}
 \input{content/mathematical_appendix}
+\input{content/closure_equations_chapter}
 \end{appendices}
 
 \printbibliography[heading=bibintoc,title=References]

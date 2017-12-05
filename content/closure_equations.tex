@@ -1,0 +1,66 @@
+\newcommand{\col}[2]{\label{eq:CE_#1}\tag{\CE{#1}{#2}}\qquad\quad}
+\newcommand{\colNspace}{\quad}
+\newcommand{\nocol}{\nonumber\qquad\qquad}
+\newcommand{\coeffs}[1]{{\textcolor{coeffcolor}{#1}}}
+\newcommand{\straight}[1]{{\textcolor{Ecolor}{#1}}}
+\newcommand{\tilted}[1]{{\textcolor{Ecolor}{#1}}}
+\newcommand{\init}[1]{{\textcolor{Ecolor}{#1}}}
+\newcommand{\CC}[3]{\coeffs{C_{#1 : #2}{}^{#3}}}
+\renewcommand{\Coeff}[1]{\coeffs{C_{#1}}}
+
+\newenvironment{titledeqns}[1]{
+	\uppercase{#1}
+}{}
+
+\newcommand{\tunedvs}{3pt}
+
+\makeatletter 
+\def\leqno{\tagsleft@true}\def\reqno{\tagsleft@false} 
+\makeatother 
+
+\leqno
+
+\hspace{0pt}
+\vfill
+\begin{titledeqns}{The seven individual equations}
+\begin{align}
+&\col{1}{} 0 = -\coeffs{C} \delta^\gamma_\mu + \sum_{K=0}^\infty (K+1) \CC{}{A}{\gamma\alpha_1\dots\alpha_K} \left(\straight{E^A{}_{\mu,\alpha_1\dots\alpha_K}} + \straight{F^A{}_\mu{}^{\alpha_{K+1}}{}_{,\alpha_1\dots\alpha_{K+1}}} \right) - \sum_{K=0}^\infty (K+1) \CC{}{A}{(\alpha_1\dots\alpha_K|} \straight{F^A{}_\mu{}^{|\gamma)}{}_{,\alpha_1\dots\alpha_K}} \\[0pt]
+&\col{2}{} 0 = -\Coeff{A} \left( \straight{E^A{}_{\mu:B}{}^{\gamma}} + \straight{F^A{}_{\mu}{}^\gamma{}_{:B}} \right) + \sum_{K=0}^\infty (K+1) \CC{B}{A}{\gamma\alpha_1\dots\alpha_K} \left(\straight{E^A{}_{\mu,\alpha_1\dots\alpha_K}} + \straight{F^A{}_\mu{}^{\alpha_{K+1}}{}_{,\alpha_1\dots\alpha_{K+1}}} \right) - \sum_{K=0}^\infty (K+1) \CC{B}{A}{(\alpha_1\dots\alpha_K|} \straight{F^A{}_\mu{}^{|\gamma)}{}_{,\alpha_1\dots\alpha_K}} \\[0pt]
+&\col{3}{} 0 = 2\left(\mathrm{deg} P-1\right) \init{p^{(\mu|\rho}}\Coeff{AB} \straight{F^A{}_\rho{}^{|\nu)}} + \sum_{K=0}^\infty (K+1)\CC{B}{A}{\alpha_1\dots\alpha_K(\mu|} \tilted{M^{A|\nu)}{}_{,\alpha_1\dots\alpha_K}} - \sum_{K=0}^\infty (-1)^K \binom{K+2}{K} \left( \partial^K_{\alpha_1\dots\alpha_K} \CC{}{B}{\alpha_1\dots\alpha_K\mu\nu} \right)
+\\[0pt]
+&\col{4}{} 0 = 2 \left(\mathrm{deg} P-1\right) \Coeff{AB} \left( \init{p^{\mu\nu}} \straight{E^A{}_\nu} - \init{p^{\mu\nu}{}_{,\gamma}} \straight{F^A{}_\nu{}^{\gamma}}\right) - \Coeff{A} \tilted{M^{A\mu}{}_{:B}} - \sum_{K=0}^\infty \CC{B}{A}{\alpha_1\dots\alpha_K} \tilted{M^{A\mu}{}_{,\alpha_1\dots\alpha_K}} - \sum_{K=0}^\infty  (-1)^K (K+1) \left( \partial^K_{\alpha_1\dots\alpha_K} \CC{}{B}{\alpha_1\dots\alpha_K\mu} \right) \\[0pt]
+&\col{5}{} 0 = 2\partial_\mu\left(\Coeff{A}\tilted{M^{A[\mu|}{}_{:B} M^{B|\gamma]}}\right) - 2 \left(\mathrm{deg} P-1\right) \init{p^{\rho\gamma}}\bigg[ \Coeff{A} \straight{E^A{}_\rho} + \partial_\mu\left( \Coeff{A} \straight{F^A{}_\rho{}^\mu}\right)  \bigg] + \sum_{K=0}^\infty \CC{}{A}{\alpha_1\dots\alpha_K} \tilted{M^{A\gamma}{}_{,\alpha_1\dots\alpha_K}} + \\[0pt]
+&\nocol +\sum_{K=0}^\infty \sum_{J=0}^K (-1)^J \binom{K}{J} (J+1) \partial^J_{\alpha_1\dots\alpha_J} \left( \CC{}{A}{\beta_1\dots\beta_{K-J}(\alpha_1\dots\alpha_J|} \tilted{M^{A|\gamma)}{}_{,\beta_1\dots\beta_{K-J}}} \right) \\ 
+&\col{6}{} 0 = 6 \left(\mathrm{deg} P-1\right) \Coeff{AB_1 B_2} \left( \init{p^{\mu\nu}} \straight{E^A{}_\nu} - \init{p^{\mu\nu}{}_{,\gamma}}\straight{F^A{}_\nu{}^{\gamma}}\right)  - 4 \Coeff{A(B_1} \tilted{M^{A\mu}{}_{:B_2)}} - 2 \CC{B_1 B_2}{A}{} \tilted{M^{A\mu}} - 2 \CC{B_1 B_2}{A}{\alpha} \tilted{M^{A\mu}{}_{,\alpha}} - 2 \CC{B_1 B_2}{A}{\alpha\beta} \tilted{M^{A\mu}{}_{,\alpha\beta}} \\[0pt]
+&\nocol - \CC{B_2}{B_1}{\mu} - \sum_{K=0}^\infty (-1)^K (K+1) \left( \partial^K_{\alpha_1\dots\alpha_K} \CC{B_1}{B_2}{\mu\alpha_1\dots\alpha_K} \right)  \\[0pt]
+&\col{7}{} 0  =  \sum_{K=2}^\infty \sum_{J=2}^{K} (-1)^J \binom{K}{J} (J-1) \partial^{J+1}_{\gamma\alpha_1\dots\alpha_{J}} \left( \CC{}{A}{\beta_1\dots\beta_{K-J} (\alpha_1 \dots \alpha_J|} \tilted{M^{A|\gamma)}{}_{,\beta_1\dots\beta_{K-J}}} \right)
+\end{align}
+\end{titledeqns}
+\vfill
+\hspace{0pt}
+
+\pagebreak
+
+\begin{titledeqns}{The fourteen sequences of equations for $N\geq 2$}
+\begin{align}
+&\col{8}{N}\colNspace 0 = \sum_{K=0}^\infty \binom{K+N}{K} \left[ \CC{}{A}{\beta_1\dots\beta_N \alpha_1\dots \alpha_K} \left( \straight{E^A{}_{\mu,\alpha_1\dots\alpha_K}} + \straight{F^A{}_\mu{}^{\alpha_{K+1}}{}_{,\alpha_1\dots\alpha_{K+1}}} \right) - \CC{}{A}{(\beta_1\dots\beta_N \alpha_1\dots \alpha_{K-1}|} \straight{F^A{}_\mu{}^{|\alpha_K)}{}_{,\alpha_1\dots \alpha_K}} \right]\\
+&\col{9}{N}\colNspace 0 = \sum_{K=0}^\infty \binom{K+N}{K} \left[ \CC{B}{A}{\beta_1\dots\beta_N \alpha_1\dots \alpha_K} \left( \straight{E^A{}_{\mu,\alpha_1\dots\alpha_K}} + \straight{F^A{}_\mu{}^{\alpha_{K+1}}{}_{,\alpha_1\dots\alpha_{K+1}}} \right) - \CC{B}{A}{(\beta_1\dots\beta_N \alpha_1\dots \alpha_{K-1}|} \straight{F^A{}_\mu{}^{|\alpha_K)}{}_{,\alpha_1\dots \alpha_K}} \right]\\
+&\col{10}{N}\colNspace 0 = - \Coeff{B_1\dots B_N} \delta^\gamma_\mu - N \Coeff{A(B_1\dots B_{N-1}} \straight{F^A{}_{|\mu|}{}^\gamma{}_{:B_N)}} - \CC{B_1\dots B_N}{A}{} \straight{F^A{}_\mu{}^\gamma} + \CC{B_1\dots B_N}{A}{\gamma} \straight{E^A{}_\mu} - \CC{B_1\dots B_N}{A}{\alpha} \straight{F^A{}_\mu{}^\gamma{}_{,\alpha}}  \\[0pt]
+&\nocol\colNspace + 2 \,\CC{B_1\dots B_N}{A}{\alpha\gamma} \straight{E^A{}_{\mu,\alpha}} - \CC{B_1\dots B_N}{A}{\alpha\beta} \straight{F^A{}_\mu{}^\gamma{}_{,\alpha\beta}} \\[0pt]
+&\col{11}{N}\colNspace 0 = \CC{B_1\dots B_N}{A}{\beta_1\beta_2} \straight{E^A{}_\mu} - \CC{B_1\dots B_N}{A}{(\beta_1|} \straight{F^A{}_\mu{}^{|\beta_2)}} - 2 \CC{B_1\dots B_N}{A}{\alpha(\beta_1|} \straight{F^A{}_\mu{}^{|\beta_2)}{}_{,\alpha}} \\[\tunedvs]
+&\col{12}{N}\colNspace 0 = \CC{B_1\dots B_N}{A}{(\alpha\beta|} \straight{F^A{}_\mu{}^{|\gamma)}}\\[\tunedvs]
+&\col{13}{N}\colNspace 0 = \CC{B_1\dots B_N}{A}{(\mu\nu|} \tilted{M^{A|\gamma)}} \\[\tunedvs]
+&\col{14}{N}\colNspace 0 = \Coeff{AB_1\dots B_{N-1}} \left( \tilted{M^{B[\mu|} M^{A|\nu]}{}_{:B}} + \left(\mathrm{deg} P - 1\right) \init{p{}^{\rho[\mu|}}\straight{F^{A}{}_\rho{}^{|\nu]}} \right) \\[\tunedvs]
+&\col{15}{N}\colNspace 0 = \CC{B_1\dots \widehat{B_J}\dots B_{N+1}}{B_J}{\mu\nu} - \CC{\vphantom{\widehat{B_J}}B_1\dots B_{N}}{B_{N+1}}{\mu\nu} \qquad \text{for} \quad J = 1 \dots N+1  \\[\tunedvs]
+&\col{16}{N}\colNspace 0 = N\cdot(N+1) \left(\mathrm{deg} P-1\right) \Coeff{AB_1\dots B_N} \init{p^{\rho(\mu|}} \straight{F^A{}_\rho{}^{|\nu)}} + N \CC{B_1\dots B_N}{A}{(\mu|} \tilted{M^{A|\nu)}} + 2N \CC{B_1\dots B_N}{A}{\alpha(\mu|} \tilted{M^{A|\nu)}{}_{,\alpha}} + (N-2) \CC{B_1\dots B_{N-1}}{B_N}{\mu\nu} \\[\tunedvs]
+&\col{17}{N}\colNspace 0 = (N+2)\cdot (N+1) \left(\mathrm{deg} P-1\right) \Coeff{AB_1\dots B_{N+1}} \left(\init{p^{\mu\nu}}\straight{E^A{}_\nu} - \init{p^{\mu\nu}{}_{,\gamma}} \straight{F^A{}_\nu{}^\gamma}\right) - (N+1)^2 \Coeff{A(B_1\dots B_N} \tilted{M^{A\mu}{}_{:B_{N+1})}} - (N+1) \CC{B_1\dots B_{N+1}}{A}{} \tilted{M^{A\mu}} \\[0pt]
+&\nocol\colNspace - (N+1) \CC{B_1\dots B_{N+1}}{A}{\alpha} \tilted{M^{A\mu}{}_{,\alpha}} - (N+1) \CC{B_1\dots B_{N+1}}{A}{\alpha\beta} \tilted{M^{A\mu}{}_{,\alpha\beta}} - \sum_{K=1}^{N+1} \CC{B_1\dots \widehat{B_K} \dots B_{N+1}}{B_K}{\mu} + 2 \left(\partial_\gamma \CC{B_1\dots B_N}{B_{N+1}}{\gamma\mu}\right) \\
+&\col{18}{N}\colNspace 0 = \CC{A}{B}{\mu_1\dots \mu_N} - \sum_{K=0}^\infty (-1)^{K+N} \binom{K+N}{K} \left(\partial^K_{\alpha_1\dots \alpha_K} \CC{B}{A}{\alpha_1\dots \alpha_K \mu_1\dots \mu_N}\right) \\
+&\col{19}{N}\colNspace 0 = \sum_{K=0}^\infty \binom{K+N}{K} \CC{B}{A}{\alpha_1\dots \alpha_K(\mu_1\dots \mu_{N}|} \tilted{M^{A|\mu_{N+1})}{}_{,\alpha_1\dots\alpha_K}} + \sum_{K=0}^\infty (-1)^{K+N} \binom{K+N+1}{N+1} \left( \partial^K_{\alpha_1\dots\alpha_K} \CC{}{B}{\alpha_1\dots\alpha_K\mu_1\dots \mu_{N+1}} \right) \\
+&\col{20}{N\textrm{\tiny even}}\colNspace\quad 0 = \sum_{K=N}^\infty \sum_{J=N+1}^{K+1} (-1)^J \binom{K}{J-1} \binom{J}{N} \partial^{J-N}_{\alpha_1\dots\alpha_{J-N}} \left( \CC{}{A}{\beta_J\dots\beta_K(\alpha_1\dots\alpha_{J-N}\mu_1\dots\mu_{N-1}|} \tilted{M^{A|\mu_N)}{}_{,\beta_J\dots\beta_K}} \right) \\[\tunedvs]
+&\col{21}{N\textrm{\tiny odd}}\colNspace\quad 0 = 2 \sum_{K=N-1}^\infty \binom{K}{N-1} \CC{}{A}{\beta_N\dots\beta_K(\mu_1\dots\mu_{N-1}|} \tilted{M^{A|\mu_N)}{}_{,\beta_N\dots\beta_K}} \\[0pt]
+&\nocol - \sum_{K=N}^\infty \sum_{J=N+1}^{K+1} (-1)^J \binom{K}{J-1} \binom{J}{N} \partial^{J-N}_{\alpha_1\dots\alpha_{J-N}} \left( \CC{}{A}{\beta_J\dots\beta_K(\alpha_1\dots\alpha_{J-N}\mu_1\dots\mu_{N-1}|} \tilted{M^{A|\mu_N)}{}_{,\beta_J\dots\beta_K}} \right)
+\end{align}
+\end{titledeqns}
+
+\reqno
