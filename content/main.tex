@@ -13,25 +13,25 @@ To proceed, we shall first make the notion of spacetime geometry slightly more p
 It is quite striking at this point already that we are entirely unable to speak of gravity without a notion of matter tracing its geodesics and inducing changes in spacetime geometry in turn. Indeed it is only with respect to a matter theory that we can speak of the existence of a physical spacetime geometry at all. And conversely, whenever we devise a matter theory, it is always based on a notion of geometry. To illustrate this statement, one may consider
 \begin{subequations}\label{eq:exmpl_matter_field_eqns}
 \begin{align}
-	\text{Scalar field theory} \quad &\left(\partial^2-\mass^2\right)\matterfields=0 \quad \text{with} \quad \partial^2=\met^{ab}\partial_a\partial_b\eqpunct{,}\label{eq:scal_dyn}\\
-%	\text{Schrödinger theory} \quad &\iu\hbar\diffp{\wavefunc}{t}=-\frac{\hbar}{2\mass}\Delta\wavefunc+\pot\wavefunc \quad \text{with} \quad \begin{cases}
-%		\Delta=\minkmet^{ab}\partial_a\partial_b\\
-%		\minkmet^{ta}=0
-%	\end{cases}\label{eq:schroed_dyn}\\
-	\text{or Maxwell electrodynamics} \quad &\covd_b\fstr^{ab}=\emcurr^a \quad \text{with} \quad \fstr^{ab}=\met^{ac}\met^{bd}\fstr_{cd}\label{eq:mw_dyn}
+	\text{Scalar field theory} \quad &\left(\partial^2-\mass^2\right)\matterfields=0 \quad \text{with} \quad \partial^2=\mattergeom^{ab}\partial_a\partial_b\eqpunct{,}\label{eq:scal_dyn}\\
+	\text{Schrödinger theory} \quad &\iu\hbar\diffp{\wavefunc}{t}=-\frac{\hbar}{2\mass}\Delta\wavefunc+\pot\wavefunc \quad \text{with} \quad \begin{cases}
+		\Delta=\mattergeom^{ab}\partial_a\partial_b\\
+		\mattergeom^{ta}=0
+	\end{cases}\label{eq:schroed_dyn}\\
+	\text{or Maxwell electrodynamics} \quad &\partial_b\fstr^{ab}=\emcurr^a \quad \text{with} \quad \fstr^{ab}=\mattergeom^{ac}\mattergeom^{bd}\fstr_{cd}\label{eq:mw_dyn}
 	\eqpunct{.}
 \end{align}
 \end{subequations}
-In each field equation, the coefficients~$\met^{ab}$ represent a notion of geometry that the respective matter field propagates on. Indeed, it is precisely the coefficients of matter field equations that we shall refer to as \emph{geometry}. For more general geometries that are, in contrast to~$\met$ here, not necessarily of rank two, one object of consideration in partial differential equation theory is their \emph{principal polynomial}~$\prpol\of{\momcov}$. It is constructed from the highest-order derivative coefficients, with a precise definition for instance provided in~\autocite{DispRel2011}, and in the particular cases considered here coincides with the metric structure~$\met$ as
+In each field equation, the coefficients~$\mattergeom^{ab}$ represent a notion of geometry that the respective matter field propagates on. Indeed, it is precisely the coefficients of matter field equations that we shall refer to as \emph{geometry}. For more general geometries that are, in contrast to~$\mattergeom$ here, not necessarily of rank two, one object of consideration in partial differential equation theory is their \emph{principal polynomial}~$\prpol\of{\momcov}$. It is constructed from the highest-order derivative coefficients, with a precise definition for instance provided in~\autocite{DispRel2011}, and in the particular cases considered here coincides with the metric structure~$\mattergeom$ as
 \begin{equation}
-	\prpol\of{\momcov}=\met^{ab}\momcov_a\momcov_b
+	\prpol\of{\momcov}=\mattergeom^{ab}\momcov_a\momcov_b
 	\eqpunct{.}
 \end{equation}
 Now crucially, we shall see momentarily that the mathematical properties of the principal polynomial, and those of similar structures such as its dual~\autocite{DispRel2011}, determine the structure of the matter field equations~\eqref{eq:exmpl_matter_field_eqns}. They are therefore objects of primary concern for physical theories.
 
-For instance, when we enquire what information on the respective matter fields we need to supply to determine the value of the field at a particular point, we realize that this information depends on the structure of the principal polynomial, or by extension on the geometry~$\met$. For instance, the scalar field dynamics~\eqref{eq:scal_dyn}, where we specify the geometry~$\met^{ab}=\diag{1,-1,-1,-1}$ in a particular choice of coordinates, takes the form of a wave equation. In order to fully determine the scalar field value at a particular instant and location we must supply its value on a spatial surface intersecting a cone facing backwards in time~\autocite{DispRel2011}. However, the same scalar field equation~\eqref{eq:scal_dyn} with a different geometry that allows for $\met^{ab}=\diag{1,1,1,1}$ in some choice of coordinates is a four-dimensional Poisson equation. Then, it requires all scalar field values on an encompassing boundary to fully determine a value in its enclosure. Therefore, this latter geometry, as opposed to the previous example, gives a dynamically evolving observer no predictive power over the scalar field values. As detailed in~\autocite{DispRel2011}, equation~\eqref{eq:scal_dyn} is \emph{hyperbolic}, making it predictive if, and only if, the geometry~$\met$ is of Lorentzian signature.
+For instance, when we enquire what information on the respective matter fields we need to supply to determine the value of the field at a particular point, we realize that this information depends on the structure of the principal polynomial, or by extension on the geometry~$\mattergeom$. For instance, the scalar field dynamics~\eqref{eq:scal_dyn}, where we specify the geometry~$\mattergeom^{ab}=\diag{1,-1,-1,-1}$ in a particular choice of coordinates, takes the form of a wave equation. In order to fully determine the scalar field value at a particular instant and location we must supply its value on a spatial surface intersecting a cone facing backwards in time~\autocite{DispRel2011}. However, the same scalar field equation~\eqref{eq:scal_dyn} with a different geometry that allows for $\mattergeom^{ab}=\diag{1,1,1,1}$ in some choice of coordinates is a four-dimensional Poisson equation. Then, it requires all scalar field values on an encompassing boundary to fully determine a value in its enclosure. Therefore, this latter geometry, as opposed to the previous example, gives a dynamically evolving observer no predictive power over the scalar field values. As detailed in~\autocite{DispRel2011}, equation~\eqref{eq:scal_dyn} is \emph{hyperbolic}, making it predictive if, and only if, the geometry~$\mattergeom$ is of Lorentzian signature.
 
-Having identified the coefficients of physical matter theories as objects of primary concern, a theory of gravity is now only a minor, but crucial, step away. From the perspective we took here it may appear obvious to allow for the geometrical coefficients~$\met^{ab}$, in addition to the matter field dynamics that we have already constructed, to also evolve dynamically. We would need to elevate these coefficients to spacetime fields and formulate field equations for them, but their dynamical effect on the matter field equations and, by extension, particle trajectories would be imminent. Referring to this geometrical effect as gravity, the validity of this theory could be tested directly by measuring particle trajectories. What is more, assuming we may formulate both the matter and geometry dynamics as an action principle
+Having identified the coefficients of physical matter theories as objects of primary concern, a theory of gravity is now only a minor, but crucial, step away. From the perspective we took here it may appear obvious to allow for the geometrical coefficients~$\mattergeom^{ab}$, in addition to the matter field dynamics that we have already constructed, to also evolve dynamically. We would need to elevate these coefficients to spacetime fields and formulate field equations for them, but their dynamical effect on the matter field equations and, by extension, particle trajectories would be imminent. Referring to this geometrical effect as gravity, the validity of this theory could be tested directly by measuring particle trajectories. What is more, assuming we may formulate both the matter and geometry dynamics as an action principle
 \begin{equation}\label{eq:act_full}
 	\act[\gengeom,\matterfields]=\actmatter[\gengeom,\matterfields]+\actgeom[\gengeom]
 \end{equation}
@@ -90,7 +90,7 @@ where~$\armet^{abcd}$ is now an arbitrary area-metric tensor with the symmetries
 	\armet^{abcd}=\armet^{\antisyml ab\antisymr\antisyml cd\antisymr}=\armet^{cdab}
 	\eqpunct{.}
 \end{align}
-Formulating the matter theory also requires us to specify a measure of spacetime volume~$\volel$. In metric geometry this is uniquely~$\volel_\met=\sqrtmet$\todo{show this}, but an area-metric geometry allows for some freedom in measuring volumes\todo{details?}. To facilitate a straight forward formulation of volume elements we implemented the boundary term in the formulation~\eqref{eq:maxwell_action_mod} of standard Maxwell electrodynamics to extract the volume measure as\todo{is the armet lev-civ part always dynamically irrelevant?}
+Formulating the matter theory also requires us to specify a measure of spacetime volume~$\volel$. In metric geometry this is uniquely~$\volel_\met=\sqrtmet$\todo{show this}, but an area-metric geometry allows for some freedom in measuring volumes\todo{details?}. To facilitate a straight forward formulation of volume elements we implemented the boundary term in the formulation~\eqref{eq:maxwell_action_mod} of standard Maxwell electrodynamics to extract the volume measure as
 \begin{equation}\label{eq:gled_volel}
 	{\volel_\armet}^{-1}=\frac{1}{24}\levciv_{abcd}\armet^{abcd}
 	\eqpunct{,}
@@ -507,7 +507,7 @@ where we observe that the two light cones coincide. Cosmological symmetries ther
 	\prpol_\armet(\momcov)=\met^{ab}\momcov_a\momcov_b
 	\eqpunct{.}
 \end{equation}
-We can therefore already conclude at this point that both massive and massless particle trajectories in area-metric cosmology follow an effectively metric geometry induced by~$\met(\effscale)$\todo{is the square at all relevant?}. We will revisit the propagation of light through this geometry in~\autoref{sec:prop_light}.
+We can therefore already conclude at this point that both massive and massless particle trajectories in area-metric cosmology follow an effectively metric geometry induced by~$\met(\effscale)$. We will revisit the propagation of light through this geometry in~\autoref{sec:prop_light}.
 
 \statement{The additional area-metric degree of freedom is an effective dilaton and axion field.}
 
@@ -726,7 +726,7 @@ We proceed by extracting from these quantities the geometric degrees of freedom~
 		\armetdof^\overbar{\overbar{\overbar{A}}}\defeq e^{(\overbar{\overbar{\overbar{A}}}-12)\,B}\invintertw{B}{\alpha\beta}\metbar_{\alpha\gamma}{\armetbbbar^\gamma}_\beta &\overbar{\overbar{\overbar{A}}}=13\cont 17
 	\end{armetcases}
 \end{equation}
-\todo{check this} where we employ the same choice of intertwiners as chosen in~\autocite{Schuller2016}, namely~\autocite{Reiss}
+where we employ the same choice of intertwiners as chosen in~\autocite{Schuller2016}, namely~\autocite{Reiss}
 \begin{equation}
 	\intertw{A}{\alpha\beta}=\left\{
 		\begin{psmallmatrix}1&0&0\\0&0&0\\0&0&0\end{psmallmatrix},
@@ -776,10 +776,10 @@ Furthermore, under these symmetries also
 \end{equation}
 even in area-metric geometry. Only the coefficients~$\Fcoeff{A}{\gamma}{\mu}$ remain sparsely populated with non-vanishing components
 \begin{align}
-	&\metind \Fcoeff{1}{\coordr}{\coordr}=\sqrt{2}\Fcoeff{2}{\coordr}{\coordtheta}=\sqrt{2}\Fcoeff{3}{\coordr}{\coordphi}=\Fcoeff{4}{\coordtheta}{\coordtheta}=\sqrt{2}\Fcoeff{5}{\coordtheta}{\coordphi}=\Fcoeff{6}{\coordphi}{\coordphi}=\frac{2}{\scalea^2}\\
+	&\metind \Fcoeff{1}{\coordx}{\coordx}=\sqrt{2}\Fcoeff{2}{\coordx}{\coordy}=\sqrt{2}\Fcoeff{3}{\coordx}{\coordz}=\Fcoeff{4}{\coordy}{\coordy}=\sqrt{2}\Fcoeff{5}{\coordy}{\coordz}=\Fcoeff{6}{\coordz}{\coordz}=\frac{2}{\scalea^2}\\
 	\text{and} \quad &\begin{armetcases}
-		\Fcoeff{\overbar{A}}{\alpha}{\beta} \quad \text{same as metric components}\\
-		\Fcoeff{7}{\coordr}{\coordr}=\sqrt{2}\Fcoeff{8}{\coordr}{\coordtheta}=\sqrt{2}\Fcoeff{9}{\coordr}{\coordphi}=\Fcoeff{10}{\coordtheta}{\coordtheta}=\sqrt{2}\Fcoeff{11}{\coordtheta}{\coordphi}=\Fcoeff{12}{\coordtheta}{\coordtheta}=-\frac{2\scalea^2}{\scalec^2}
+		\Fcoeff{\overbar{A}}{\gamma}{\mu} \quad \text{same as metric components}\\
+		\Fcoeff{7}{\coordx}{\coordx}=\sqrt{2}\Fcoeff{8}{\coordx}{\coordy}=\sqrt{2}\Fcoeff{9}{\coordx}{\coordz}=\Fcoeff{10}{\coordy}{\coordy}=\sqrt{2}\Fcoeff{11}{\coordy}{\coordz}=\Fcoeff{12}{\coordz}{\coordz}=-\frac{2\scalea^2}{\scalec^2}
 	\end{armetcases}
 \end{align}
 along with
@@ -938,9 +938,9 @@ We are left with constructing the Lagrangian term for this sector by contraction
 \end{equation}
 to arrive at
 \begin{equation}\label{eq:lagr_term_CA}
-	\metind \Coeff_A{\canmom_\met}^A=\frac{1}{\Nlapse}\scalea^2\dt{\scalea}\Func{1}{\met}
+	\metind \Coeff_A\canmom^A=\frac{1}{\Nlapse}\scalea^2\dt{\scalea}\Func{1}{\met}
 	\quad \text{and} \quad
-	\armetind \Coeff_A{\canmom_\armet}^A=\frac{\scalea^3}{\Nlapse}\left(\frac{\dt{\scalea}}{\scalea}\Func{1}{0}\ofc+\frac{\dt{\scalec}}{\scalec}\Func{1}{1}\ofc\right)
+	\armetind \Coeff_A\canmom^A=\frac{\scalea^3}{\Nlapse}\left(\frac{\dt{\scalea}}{\scalea}\Func{1}{0}\ofc+\frac{\dt{\scalec}}{\scalec}\Func{1}{1}\ofc\right)
 	\eqpunct{.}
 \end{equation}
 These terms, multiplied by the lapse function~$\Nlapse$, appear in the gravity action~\eqref{eq:geom_action_expansion} of metric and area-metric cosmology, respectively. We notice here that the metric term is actually dynamically irrelevant, since~$3\scalea^2\dt{\scalea}=\partial_t\left(\scalea^3\right)$ is a total derivative. The metric $\Coeff_A$-sector contribution is therefore just a boundary term. However, in area-metric cosmology, the two free functions that arise make the term contribute to the gravitational dynamics non-trivially.
@@ -1028,7 +1028,7 @@ where we performed the integration over spatial coordinates in order to extract~
 \end{subequations}
 where we chose to parametrize cosmic time as~$\Nlapse\oft=1$ as a final step\todo{add details in derivation}.
 
-Note that the action~\eqref{eq:constr_action_met} retains time reparametrization invariance by virtue of the lapse function~$\Nlapse\oft$. This is a remnant of the original covariance of the gravitational dynamics that is usually abandoned in cosmology when choosing a cosmic time parameter~$t$. That~\eqref{eq:constr_action_met} is invariant under time reparametrizations can quickly be confirmed by noting that the time coordinate~$t$ only ever appears as~$\Nlapse\oft\dif{t}$. But since under $t\to t^\prime$ also $\Nlapse\oft\dif{t}\to\Nlapse\of{t^\prime}\dif{t^\prime}$, this expression remain invariant under the transformation. A closer look indeed reveals that the lapse function merely appears as a Lagrange multiplier and thus represents a constraint on the geometrodynamics that we can identify as the standard cosmological continuity equation~\eqref{eq:cosmo_cont_met}. That this is the case, we see by verifying that the cosmological continuity equation is indeed satisfied on-shell, i.e. upon use of the Friedmann equations.\todo{more details for Bjoern}
+Note that the action~\eqref{eq:constr_action_met} retains time reparametrization invariance by virtue of the lapse function~$\Nlapse\oft$. This is a remnant of the original covariance of the gravitational dynamics that is usually abandoned in cosmology when choosing a cosmic time parameter~$t$. That~\eqref{eq:constr_action_met} is invariant under time reparametrizations can quickly be confirmed by noting that the time coordinate~$t$ only ever appears as~$\Nlapse\oft\dif{t}$. But since under $t\to t^\prime$ also $\Nlapse\oft\dif{t}\to\Nlapse\of{t^\prime}\dif{t^\prime}$, this expression remain invariant under the transformation. A closer look indeed reveals that the lapse function merely appears as a Lagrange multiplier and thus represents a constraint on the geometrodynamics that we can identify as the standard cosmological continuity equation~\eqref{eq:cosmo_cont_met}. That this is the case, we see by verifying that the cosmological continuity equation is indeed satisfied on-shell, i.e. upon use of the Friedmann equations.\todo{more details}
 
 \statement{The closure equations only determine the area-metric cosmology \\ up to countably many free functions.}
 

@@ -118,8 +118,46 @@
 \usepackage{microtype}
 
 % Bibliography
-\usepackage[style=numeric-comp,backend=biber,maxnames=10,maxcitenames=2]{biblatex}
-%\nocite{*} % print all references, even those not used
+\usepackage[
+	style=numeric-comp,
+	backend=biber,
+	maxnames=10,
+	maxcitenames=2,
+	isbn=false,
+	date=year,
+	url=false,
+	doi=false
+]{biblatex}
+\DeclareFieldFormat*{title}{``#1"}
+\DeclareFieldFormat*{date}{(#1)}
+\renewbibmacro{in:}{\iffieldundef{journaltitle}{\addspace}{\adddot\addspace In: }}
+\renewbibmacro*{issue+date}{\iffieldundef{issue}
+    {\usebibmacro{date}}
+    {\printfield{issue}%
+     \setunit*{\addspace}%
+     \usebibmacro{date}}%
+     \newunit}
+\renewbibmacro*{publisher+location+date}{%
+  \printlist{publisher}%
+  \iflistundef{location}{}{\setunit*{\space}}%
+  \printlist{location}%
+  \setunit*{\addspace}%
+  \usebibmacro{date}%
+  \newunit}
+\usepackage{xpatch}
+\xpatchbibdriver{thesis}
+  {\printfield{type}%
+   \newunit
+   \usebibmacro{institution+location+date}}
+  {\printfield{type}%
+   \setunit*{\addspace}%
+   \usebibmacro{date}}
+  {}{}
+\AtEveryBibitem{%
+    \clearfield{pages}%
+}
+  
+%\nocite{*} % print all references, even those not cited in the document
 
 % Appendix
 \usepackage[toc,page]{appendix}
