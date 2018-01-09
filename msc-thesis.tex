@@ -1,41 +1,54 @@
 \documentclass[
-    %draft,
+	%draft,
 	11pt, % font size
 	parskip=half, % space between paragraphs instead of indentation
-	digital, % digital or print
-	oneside, % oneside / twoside
+	%print, % digital or print
+	%twoside, % oneside or twoside
 	%openright, % openright for title page and subsequent chapters on right pages in twosided layout
 ]{thesis}
 
+% Geometry
 \geometry{
 	width=150mm,
 	bindingoffset=7mm,
 }
 \fancyhfoffset{0pt}
 
+% Language
+\usepackage[ngerman,english]{babel} % all languages being used, with main language last in list
+
+% Colors
+\definecolor{uhd}{RGB}{196,19,47} % the red color of Heidelberg University
+\hypersetup{
+	allcolors=uhd
+}
+
+% Todonotes
 \usepackage[disable]{todonotes}
-%\usepackage{todonotes}
 \usepackage{comment}
 
-\usepackage{pdflscape}
-\usepackage{afterpage}
-
+% Quote in front matter
 \usepackage{epigraph}
+\setlength{\epigraphwidth}{.8\textwidth}
+\setlength{\epigraphrule}{0pt}
 
+% Statements index
 \usepackage[hyperref]{ntheorem}
 \newtheorem{statements}{Statements}[chapter]
 
-%\makeatletter
-%\newcommand\l@statement[2]{{#1}\hfill{#2}\\}
-%\newcommand\listofstatements{%
-%  \chapter*{List of Statements}\@starttoc{statement}}
-%\makeatother
+% Landscape pages for closure equations in appendix
+\usepackage{pdflscape}
+\usepackage{afterpage}
 
+
+% Metadata
 
 \title{Cosmological closure of metric and area-metric ideal fluids}
 \author{Nils Leif Fischer}
 \date{December 5, 2017}
 
+
+% Macros
 \input{include/macros}
 
 \addbibresource{bib/Masterarbeit.bib}
@@ -44,16 +57,17 @@
 
 
 % Front matter
+
 \pagenumbering{Roman}
 
 \input{content/titlepage}
 \input{content/abstract}
 \input{content/quote}
 
+% List of statements
 \setcounter{tocdepth}{1}
 \tableofcontents
 \listoffigures
-%\listofstatements
 \chapter*{List of Statements}
 \listtheorems{statements}
 

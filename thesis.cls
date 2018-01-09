@@ -5,31 +5,25 @@
 \DeclareOption{print}{\@printtrue}
 \DeclareOption{digital}{\@printfalse}
 
+\ExecuteOptions{digital}
 \ProcessOptions\relax
 
 
 % General
 \LoadClassWithOptions{scrreprt}
 
-% Language
-\usepackage[ngerman,english]{babel} % all languages being used, with main language last in list
-
 % Geometry
-\usepackage[onehalfspacing]{setspace}
-\usepackage[a4paper,width=150mm,top=30mm,bottom=30mm]{geometry}
+\RequirePackage[onehalfspacing]{setspace}
+\RequirePackage[a4paper,width=150mm,top=30mm,bottom=30mm]{geometry}
 
 % Links
-\usepackage{color,xcolor}
-\usepackage{hyperref}
+\RequirePackage{color,xcolor}
+\RequirePackage{hyperref}
 \if@print % switch link coloring off for printing
 	\hypersetup{colorlinks=false}
 \else
 	\hypersetup{colorlinks=true}
 \fi
-\definecolor{uhd}{RGB}{196,19,47} % the red UHD brand color
-\hypersetup{
-	allcolors=uhd
-}
 \AtBeginDocument{
 	\hypersetup{ % set pdf metadata
 	    pdfauthor={\@author},
@@ -38,48 +32,32 @@
 }
 
 % Math utility to load before font selection
-\usepackage{amsmath,amssymb}
-\usepackage{commath}
-\usepackage{mathtools}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{commath}
+\RequirePackage{mathtools}
 
 % Fonts
-%\usepackage{fontspec,xunicode}
-\usepackage{mathspec} % also loads fontspec
+\RequirePackage{fontspec,xunicode}
 \setmainfont{Palatino}
 \setsansfont{Optima}
-%\setmainfont{Nlf}
-%\setsansfont{Nlf}
 \setmonofont[Scale=MatchLowercase]{Menlo}
-%\setmathrm{Nlf}
-\newfontfamily\handwritten{Nlf}
-%\setmathsfont(Digits,Latin,Greek){Nlf}
 
 % Titles
-%\usepackage[uppercase]{titlesec}
-%\titleformat{\chapter}[hang]{\handwritten\Huge}{\thechapter}{10pt}{\uppercase}
-%\titleformat{\section}[hang]{\handwritten\LARGE}{\thesection}{10pt}{\uppercase}
-\usepackage{titlesec}
-%\renewcommand\thechapter{\Roman{chapter}}
-%\titleformat{\chapter}[display]{\normalfont\sffamily\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\RequirePackage{titlesec}
 \titleformat{\paragraph}[block]{\center\bfseries}{\thetitle}{}{}
 
 % Units
-\usepackage[separate-uncertainty]{siunitx}
+\RequirePackage[separate-uncertainty]{siunitx}
 
 % Tables
-\usepackage{array} % for math mode in tables
-\usepackage{booktabs} % for hline rules
-
-% Quotations
-\usepackage{epigraph}
-\setlength{\epigraphwidth}{.8\textwidth}
-\setlength{\epigraphrule}{0pt}
+\RequirePackage{array} % for math mode in tables
+\RequirePackage{booktabs} % for hline rules
 
 % Page Layout
-\usepackage{fancyhdr}
+\RequirePackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\if@print
+\if@twoside
 	\fancyhead[LE]{
 	    \textit{\nouppercase{\leftmark}}
 	}
@@ -99,26 +77,16 @@
 \fi
 \renewcommand{\headrulewidth}{0.2pt}
 \renewcommand{\footrulewidth}{0pt}
-\fancypagestyle{plain}{%
-	\fancyhf{}
-	\if@print
-		\fancyfoot[RO,LE]{
-			\thepage
-		}
-	\else
-		\fancyfoot[C]{
-			\thepage
-		}
-	\fi
+\fancypagestyle{plain}{
+	\fancyhead{}
 	\renewcommand{\headrulewidth}{0pt}
-	\renewcommand{\footrulewidth}{0pt}
 }
 
 % Type optimization
-\usepackage{microtype}
+\RequirePackage{microtype}
 
 % Bibliography
-\usepackage[
+\RequirePackage[
 	style=numeric-comp,
 	backend=biber,
 	maxnames=10,
@@ -156,11 +124,8 @@
 \AtEveryBibitem{%
     \clearfield{pages}%
 }
-  
-%\nocite{*} % print all references, even those not cited in the document
 
 % Appendix
-\usepackage[toc,page]{appendix}
-
+\RequirePackage[toc,page]{appendix}
 
 \endinput

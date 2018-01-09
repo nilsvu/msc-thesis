@@ -43,27 +43,10 @@
 \makeatother
 
 \newcommand{\figcaption}[2]{\caption[#1]{\textbf{#1} \quad #2}}
-%\usepackage{pgf}
-%\newcommand{\plt}[3]{
-%	\begin{figure}[h]
-%		\begin{center}
-%			\input{plots/#1.pgf}
-%		\end{center}
-%		\caption[#2]{\textbf{#2} \quad #3}
-%		\label{fig:#1}
-%	\end{figure}
-%}
 
 % Environments
-\newcommand{\statement}[1]{\stepcounter{statements}\addtheoremline{statements}{#1}\paragraph{#1}}%\addcontentsline{statement}{Statement}{#1}
+\newcommand{\statement}[1]{\stepcounter{statements}\addtheoremline{statements}{#1}\paragraph{#1}}
 \newcommand{\Csector}[1]{\paragraph{#1}}
-\newenvironment{insight}[1]{\subsection{#1}}{}
-\newenvironment{metric}{%\color{red} (\met)\vert\;\color{black}
-}{}
-\newenvironment{metric*}{}{}
-\newenvironment{armetric}{%\colorbox{red}{\parbox{-3em}{\strut}}\;
-}{}
-\newenvironment{armetric*}{}{}
 \newcommand{\metind}{{\color{met}\met\colon\enspace}}
 \newcommand{\armetind}{{\color{armet}\armet\colon\enspace}}
 \newcommand{\metindc}{{\color{met}\met\colon\!}}
@@ -126,6 +109,13 @@
 \newcommand{\cont}{\ldots}
 \newcommand{\gravconst}{\kappa}
 \newcommand{\hypersurf}{\Sigma}
+\newcommand{\idmat}{\mathbbm{1}}
+\newcommand{\const}{\textnormal{\textit{const}}} % constant parameter
+\newcommand{\FLRW}{FLRW}
+\newcommand{\LCDM}{$\cosmconst$CDM}
+\newcommand{\Rscal}{\mathcal{R}} % Ricci scalar
+\newcommand{\newtconst}{\mathrm{G}_\textnormal{\tiny{N}}} % Newtonian constant
+\newcommand{\cosmconst}{\Lambda} % cosmological constant
 % Tensor calculus
 \newcommand{\levciv}{\epsilon}
 \newcommand{\krond}{\delta}
@@ -203,7 +193,6 @@
 \newcommand{\Mcoeff}[2]{M^{#1 #2}}
 \newcommand{\Nind}{n}
 \newcommand{\nind}{m}
-
 \newcommand{\prpol}{P}
 \newcommand{\Pdual}{P^\#}
 \newcommand{\gengeom}{G} % general geometry
@@ -254,65 +243,3 @@
 \newcommand{\fours}{k}
 \newcommand{\powspec}{P}
 \newcommand{\corrf}{\xi}
-
-
-% Abbreviations
-\newcommand{\LCDM}{$\cosmconst$CDM}
-\newcommand{\FLRW}{FLRW}
-\newcommand{\fR}[1]{\(f(\Rscal)\)~#1}
-\newcommand{\Rscal}{\mathcal{R}} % Ricci scalar
-\newcommand{\Rtens}{R} % Ricci tensor
-\newcommand{\Riemtens}{R} % Riemann tensor
-\newcommand{\Gtens}{G} % Einstein tensor
-\newcommand{\Ttens}{T} % Energy-momentum tensor
-\newcommand{\metrdet}[1]{\abs{#1}} % metric determinant
-\newcommand{\lagrdens}{\mathcal{L}} % Lagrangian
-\newcommand{\lagrdensmatter}{\lagrdens_\textnormal{matter}(g,\matterfields)} % matter Lagrangian
-\newcommand{\newtconst}{\mathrm{G}_\textnormal{\tiny{N}}} % Newtonian constant
-\newcommand{\cosmconst}{\Lambda} % cosmological constant
-\newcommand{\hcross}{h_\times} % cross-polarized tensor perturbation
-\newcommand{\hplus}{h_+} % plus-polarized tensor perturbation
-\newcommand{\conft}{\eta} % conformal time
-\newcommand{\efold}{\ln a} % e-foldings
-\newcommand{\Hcosm}{\mathrm{H}} % Hubble function
-\newcommand{\Hconf}{\mathcal{H}} % conformal Hubble function
-%\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
-\newcommand{\nexp}{n(\eosp)} % 3(1+w)
-\newcommand{\nexpconft}{\tilde{n}(\eosp)} % 2/(1+3w)
-\newcommand{\denscrit}{\rho_\textnormal{crit}} % density
-\newcommand{\Dens}{\Omega} % normalized density
-\newcommand{\symbdust}{\mathrm{m}} % normalized density
-\newcommand{\symbrad}{\gamma} % normalized density
-% Parametrization
-\newcommand{\alphaM}{{\alpha_{\textnormal{\tiny{M}}}}} % parametrized friction
-\newcommand{\tenspert}{\textnormal{\tiny{T}}}
-\newcommand{\scalpert}{\textnormal{\tiny{S}}}
-\newcommand{\cT}{{c_\tenspert}} % parametrized propagation speed
-\newcommand{\const}{\textnormal{\textit{const}}} % constant parameter
-\newcommand{\alphaMnot}{\alphaM_0} % parametrized power law friction amplitude
-\newcommand{\betaexp}{\beta} % parametrized power law friction exponent
-\newcommand{\ofmetr}[1]{_{#1}}
-\newcommand{\alphaMofmetr}[1]{\alphaM\ofmetr{#1}}
-\newcommand{\mofmetr}[1]{m\ofmetr{#1}}
-\newcommand{\cTofmetr}[1]{\cT\ofmetr{#1}}
-\newcommand{\qofmetr}[1]{q\ofmetr{#1}}
-% Bessel functions
-\newcommand{\besselJ}{J}
-\newcommand{\besselY}{Y}
-
-% Derivatives
-\newcommand{\dconf}[1]{\dot{#1}}
-\newcommand{\ddconf}[1]{\ddot{#1}}
-\newcommand{\defold}[1]{#1^\prime}
-\newcommand{\ddefold}[1]{#1^{\prime\prime}}
-
-% Operators and other stuff
-\newcommand{\idmat}{\mathbbm{1}}
-\newcommand{\dxdx}[2]{\dif{x^{#1}}\otimes\dif{x^{#2}}}
-
-% Units
-\RequirePackage{siunitx}
-\DeclareSIUnit\parsec{pc}
-
-% Code
-\newcommand{\mmainline}[1]{\texttt{#1}}
