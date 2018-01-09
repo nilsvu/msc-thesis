@@ -1,5 +1,7 @@
 # Master thesis in Physics
 
+[![DOI](https://zenodo.org/badge/87197132.svg)](https://zenodo.org/badge/latestdoi/87197132)
+
 - **Title:** Cosmological closure of metric and area-metric ideal fluids
 - **Author:** [Nils Leif Fischer](https://nilsleiffischer.de)
 - **Submission date:** Dec 5, 2017
